@@ -47,7 +47,7 @@ public class actMainDebug extends ActionBarActivity {
 
         //Texto de la dirección de servidor
         TextView serverAddress = (TextView) findViewById(R.id.edit_server_adress);
-        serverAddress.setText(Constants.SERVER_URL_FILE);
+        serverAddress.setText(Constants.SERVER_URL);
     }
 
     /**
@@ -94,7 +94,7 @@ public class actMainDebug extends ActionBarActivity {
         String url = serverAddress.getText().toString(); //primero usamos la introducida en la caja de texto
 
         if (url.length() == 0) {  //Si la cadena está vacia usamos la url por defecto
-            serverAddress.setText(Constants.SERVER_URL_FILE);
+            serverAddress.setText(Constants.SERVER_URL);
         }
 
         Boolean isNetworkAvailable = Networking.isConnectedToInternet();

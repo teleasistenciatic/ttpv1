@@ -10,14 +10,15 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 
+
 /**
  * Created by FESEJU on 17/02/2015.
- *
+ * <p/>
  * Esta clase maneja distintas operaciones HTTP
  *
  * @input url contiene la ruta completa que intentará leer la clase
- *        Por defecto toma el valor de las
- * @output text devolverá el texto contenido en el fichero leido o null
+ * Por defecto toma el valor de las
+ * text devolverá el texto contenido en el fichero leido o null
  */
 public class HttpUrlTextRead implements Constants {
 
@@ -27,11 +28,13 @@ public class HttpUrlTextRead implements Constants {
     /**
      * Constructor
      *
-     * @param url
+     * @param url url a leer
      */
     public HttpUrlTextRead(String url) {
+
         this.url = url;
         getUrlTextThread();
+
     }
 
     /**
@@ -57,7 +60,7 @@ public class HttpUrlTextRead implements Constants {
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
             StringBuilder sb = new StringBuilder();
-            String line = null;
+            String line;
 
             while ((line = reader.readLine()) != null) {
                 sb.append(line + "");

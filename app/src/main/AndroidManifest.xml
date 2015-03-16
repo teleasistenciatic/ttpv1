@@ -5,11 +5,11 @@
     android:versionName="@string/version_name" >
     <!--
         Android 5.0 - 21
-        Android 4.0, 4.0.1, 4.0.2 - 14 (ICE_CREAM_SANDWICH)
+        Android 4.1, 4.1.1	16	JELLY_BEAN
     -->
     <uses-sdk
         android:maxSdkVersion="21"
-        android:minSdkVersion="15" />
+        android:minSdkVersion="16" />
 
     <!-- Permisos -->
         <uses-permission android:name="android.permission.INTERNET" />

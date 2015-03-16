@@ -51,7 +51,7 @@ public class AppLog {
             return;
         }
 
-        Log.d(">>"+tag+"<<", msg);
+        Log.d(tag + " --> ", msg);
 
         if (Constants.LOG_TO_FILE) {
             FileOperation.fileLogWrite(tag, msg);
@@ -77,7 +77,7 @@ public class AppLog {
             return;
         }
 
-        Log.e(">>"+tag+"<<", msg);
+        Log.e( tag + " --> ", msg);
 
         if (Constants.LOG_TO_FILE) {
             FileOperation.fileLogWrite(tag, msg);
@@ -97,7 +97,7 @@ public class AppLog {
         }
 
         msg = msg + "\n" + e.getMessage();
-        Log.e(">>"+tag+"<<", msg);
+        Log.e( tag + " --> ", msg);
         e.printStackTrace();
 
 
@@ -136,7 +136,7 @@ public class AppLog {
             return;
         }
 
-        Log.v(">>"+tag+"<<", msg);
+        Log.v( tag + " --> ", msg);
 
         if (Constants.LOG_TO_FILE) {
             FileOperation.fileLogWrite(tag, msg);
@@ -154,7 +154,7 @@ public class AppLog {
             return;
         }
 
-        Log.w(">>"+tag+"<<", msg);
+        Log.w( tag + " --> ", msg);
 
         if (Constants.LOG_TO_FILE) {
             FileOperation.fileLogWrite(tag, msg);

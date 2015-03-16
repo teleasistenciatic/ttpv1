@@ -35,13 +35,13 @@ public interface Constants {
 
         public static final String SERVER_PROTOCOL = "http://";
         public static final String SERVER_IP = "10.0.0.190";
-        public static final String SERVER_FILE = "serverstatus";
+        //public static final String SERVER_ADDRESS = SERVER_PROTOCOL + "ttpserver.dev";
         public static final String SERVER_URL = SERVER_PROTOCOL + SERVER_IP;
-        public static final String SERVER_URL_FILE = SERVER_PROTOCOL + SERVER_IP + "/" + SERVER_FILE;
 
         ////////////////////////////////////////////////
         // Controladores
         ////////////////////////////////////////////////
+        public static final String CONTROLLER_CHECK_ONLINE_SERVER = "/serverstatus";
         public static final String CONTROLLER_CHECK_PHONE = "/phone/check/";
         public static final String CONTROLLER_USER_NAME = "/phoneuser/name/";
         public static final String CONTROLLER_AVISO_CHECK = "/aviso/check/";
@@ -52,5 +52,6 @@ public interface Constants {
     // OPERACIONES HTTP
     ////////////////////////////////////////////////
     public static final int HTTP_OPERATION_DELAY = 1000;
-    public static final int HTTP_DEFAULT_TRIES = 3; //Intentos de realizar una operación antes de dar error TODO
+
+
 }

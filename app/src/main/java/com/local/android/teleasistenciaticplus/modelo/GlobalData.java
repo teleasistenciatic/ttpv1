@@ -10,7 +10,6 @@ import android.content.Context;
  * - Al guardar el Contexto (BIG) de la aplicación mediante getApplicationContext()
  * no tendremos el problema de memoryLeak
  *
- * @return context; Devuelve el Contexto (BIG) de la aplicación
  */
 
 public class GlobalData extends Application {
@@ -20,27 +19,34 @@ public class GlobalData extends Application {
     //Número de teléfono del terminal
     private static String phoneNumber;
 
-
-    //SETTERS
-    //Guardamos el contexto de la aplicación
+    /**
+     * Se guarda el contexto de la aplicación
+     * @param context contexto BIG
+     */
     public static void setContext(Context context) {
         GlobalData.context = context;
     }
 
-    //Guardamos los datos del teléfono
+    /**
+     * Se guarda el numero de teléfono
+     * @param phoneNumber número de teléfono
+     */
     public static void setPhoneNumber( String phoneNumber ) {
         GlobalData.phoneNumber = phoneNumber;
     }
 
-    //GETTERS
-    //Metodo que devuelve el contexto de la aplicación
-    //A efectos de modelo MVP, sólo el presentador debería acceder a ella
+    /**
+     * Getter del contexto de la aplicación
+     * @return contexto BIG
+     */
     public static Context getAppContext() {
         return GlobalData.context;
     }
 
-    //Devuelve el teléfono con sus datos
+    /**
+     * Getter del numero de teléfono de la aplicación
+     * @return numero de teléfono
+     */
     public static String getPhoneNumber() { return GlobalData.phoneNumber;}
-
 
 }

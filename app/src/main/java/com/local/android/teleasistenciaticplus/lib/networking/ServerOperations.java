@@ -11,32 +11,40 @@ import com.local.android.teleasistenciaticplus.modelo.GlobalData;
  */
 public class ServerOperations {
 
-    //Método de comprobación del estado del servidor (online/offline | true/false)
+    /**
+     * Método de comprobación del estado del servidor (online/offline | true/false)
+     * @return boolean con la condición de online/offline
+     */
     public static boolean serverIsOnline() {
-        String url = Constants.SERVER_URL_FILE;
+
+        String url = Constants.SERVER_URL + Constants.CONTROLLER_CHECK_ONLINE_SERVER;
         String textRead = "";
 
         try {
             HttpUrlTextRead miUrl = new HttpUrlTextRead(url);
                 textRead = miUrl.getText();
         } catch (Exception e) {
-                AppLog.d("ServerOperations -> ", "Error leyendo el archivo");
+                AppLog.d("ServerOperations", "Error leyendo el archivo");
         }
 
-        AppLog.i("ServerOperations -> ", "textRead: " + textRead);
+        AppLog.i("ServerOperations", "textRead: " + textRead);
+
         if (textRead != null) {
             if (textRead.equals("true")) {
-                AppLog.i("ServerOperations -> ", textRead);
+                AppLog.i("ServerOperations", textRead);
                 return true;
             } else {
-                AppLog.i("ServerOperations -> ", "Error accediendo a la dirección:\"" + url + "\"");
+                AppLog.i("ServerOperations", "Error accediendo a la dirección:\"" + url + "\"");
                 return false;
             }
         }
         return false;
     }
 
-    //Comprobación de usuario registrado en el sistema
+    /**
+     * Comprobación de usuario registrado en el sistema
+     * @return boolean con la condición de registrado o no
+     */
     public static boolean isRegisteredInServer() {
 
         //recuperamos el número del terminal
@@ -45,7 +53,7 @@ public class ServerOperations {
 
         //Encriptamos el número de teléfono
         if( phoneNumber.isEmpty() ) {
-            AppLog.i("ServerOperations -> ", "Número de teléfono: VACIO");
+            AppLog.i("ServerOperations", "Número de teléfono: VACIO");
             return false;
         }
 
@@ -54,7 +62,7 @@ public class ServerOperations {
         try {
             cifrado = new Cifrado().cifrar(phoneNumber);
         } catch (Exception e) {
-            AppLog.e("ServerOperations -->", "Problema de cifrado: " + phoneNumber, e);
+            AppLog.e("ServerOperations", "Problema de cifrado: " + phoneNumber, e);
         }
 
         //conectamos al servidor vía /phone/check/ y recuperamos la respuesta
@@ -64,23 +72,26 @@ public class ServerOperations {
             HttpUrlTextRead miUrl = new HttpUrlTextRead(ConstUrlPhoneCheck);
             textRead = miUrl.getText();
         } catch (Exception e) {
-            AppLog.d("ServerOperations -> ", "Error de conexión??");
+            AppLog.d("ServerOperations", "Error de conexión??");
         }
 
         //Si el server nos devuelve el string "true" el usuario está registrado
         if (textRead != null) {
             if (textRead.equals("true")) {
-                AppLog.i("ServerOperations -> ", textRead);
+                AppLog.i("ServerOperations", textRead);
                 return true;
             } else {
-                AppLog.i("ServerOperations -> ", "Error accediendo a la dirección:\"" + ConstUrlPhoneCheck + "\"");
+                AppLog.i("ServerOperations", "Error accediendo a la dirección:\"" + ConstUrlPhoneCheck + "\"");
                 return false;
             }
         }
         return false;
     }
 
-    //Solicitar el nombre del usuario
+    /**
+     * //Solicitar el nombre del usuario
+     * @return el nombre del usuario o "unknown user"
+     */
     public static String retrieveUserName () {
 
         //Recuperamos el número de teléfono
@@ -195,7 +206,9 @@ public class ServerOperations {
         return false;
     }
 
-
+    /**
+     * Borrar aviso de usuario
+     */
 
     public static boolean borrarAviso() {
 
@@ -234,5 +247,4 @@ public class ServerOperations {
         AppLog.i("ServerOperations -> ", "ERROR texRead = " + textRead);
         return false;
     }
-
 }

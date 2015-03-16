@@ -10,6 +10,7 @@ public class Networking {
 
     /**
      * F8 sirve para activar los datos en el emulador
+     *
      * @return si existe conexión o no
      */
     public static boolean isConnectedToInternet() {
