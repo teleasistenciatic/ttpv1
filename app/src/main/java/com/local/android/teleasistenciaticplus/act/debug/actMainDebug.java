@@ -5,6 +5,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,29 +28,46 @@ public class actMainDebug extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_main_debug);
+        setContentView(R.layout.layout_main_debug_listview);
+
+        ListView listView ;
+        listView = (ListView) findViewById(R.id.debug_main_listView);
+
+        String[] values = new String[] {
+                "Uso de la memoria",
+                "Comprobacion servidor",
+                "Encriptacion/Desencriptacin"
+        };
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_1, android.R.id.text1, values);
+
+        listView.setAdapter(adapter);
 
         ////////////////////////////////////////////////////
         // Cálculo de información de la aplicación para depuración
         ////////////////////////////////////////////////////
 
-        if (android.os.Build.VERSION.SDK_INT >= 16) {
-            // Memoria usada (Solo API > 16 )
-            TextView usedMemoryText = (TextView) findViewById(R.id.debug_used_memory);
-            Long memoriaUsada = AppInfo.getUsedMemory();
-            Long memoriaTotal = AppInfo.getTotalMemory();
-            usedMemoryText.setText("Usada: " + String.valueOf(memoriaUsada) + " mb/ " + "Total: " + String.valueOf(memoriaTotal) + "mb");
 
-            ProgressBar usedMemoryBar = (ProgressBar) findViewById(R.id.debug_progress_bar_used_memory);
-        /* Escalamos a 100 como referencia para la barra de progreso */
-            usedMemoryBar.setMax(100);
-            usedMemoryBar.setProgress((int) ((memoriaUsada * 100.0f) / memoriaTotal));
-        }
+        // Memoria usada (Solo API > 16 )
+        /*
+        TextView usedMemoryText = (TextView) findViewById(R.id.debug_used_memory);
+        Long memoriaUsada = AppInfo.getUsedMemory();
+        Long memoriaTotal = AppInfo.getTotalMemory();
+        usedMemoryText.setText("Usada: " + String.valueOf(memoriaUsada) + " mb/ " + "Total: " + String.valueOf(memoriaTotal) + "mb");
+        */
 
+        /*
+        ProgressBar usedMemoryBar = (ProgressBar) findViewById(R.id.debug_progress_bar_used_memory);
+        // Escalamos a 100 como referencia para la barra de progreso
+        usedMemoryBar.setMax(100);
+        usedMemoryBar.setProgress((int) ((memoriaUsada * 100.0f) / memoriaTotal));
+        */
 
         //Texto de la dirección de servidor
-        TextView serverAddress = (TextView) findViewById(R.id.edit_server_adress);
+        /*TextView serverAddress = (TextView) findViewById(R.id.edit_server_adress);
         serverAddress.setText(Constants.SERVER_URL);
+        */
     }
 
     /**

@@ -62,6 +62,7 @@
             android:name=".act.offline.actMainOffline"
             android:icon="@drawable/ic_launcher"
             android:label="@string/title_activity_act_main_offline"
+            android:logo="@drawable/ic_launcher"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light" >
         </activity>

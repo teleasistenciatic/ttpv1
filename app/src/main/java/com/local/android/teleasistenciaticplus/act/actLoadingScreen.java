@@ -78,7 +78,7 @@ public class actLoadingScreen extends ActionBarActivity implements Constants {
         if (GlobalData.getOperationMode() == OperationMode.ONLINE) {
             actToLoad = actMain.class; //MODO ONLINE
         } else {
-            actToLoad = actMainOffline.class; //MODO OFFLINE
+            actToLoad = actMain.class; //MODO OFFLINE
         }
 
         TimerTask task = new TimerTask() {
