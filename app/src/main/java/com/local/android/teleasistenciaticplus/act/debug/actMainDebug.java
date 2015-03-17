@@ -1,20 +1,21 @@
 package com.local.android.teleasistenciaticplus.act.debug;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.local.android.teleasistenciaticplus.R;
+import com.local.android.teleasistenciaticplus.act.online.actMain;
 import com.local.android.teleasistenciaticplus.lib.cifrado.Cifrado;
 import com.local.android.teleasistenciaticplus.lib.helper.AlertDialogShow;
-import com.local.android.teleasistenciaticplus.lib.helper.AppInfo;
 import com.local.android.teleasistenciaticplus.lib.helper.AppLog;
 import com.local.android.teleasistenciaticplus.lib.networking.HttpUrlTextRead;
 import com.local.android.teleasistenciaticplus.lib.networking.Networking;
@@ -28,42 +29,72 @@ public class actMainDebug extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_main_debug_listview);
 
-        ListView listView ;
-        listView = (ListView) findViewById(R.id.debug_main_listView);
+        /////////////////////////////////////////////////////////////////////
+        // Creación del UI de ListView con los subapartados de Depuración
+        ////////////////////////////////////////////////////////////////////
 
-        String[] values = new String[] {
-                "Uso de la memoria",
-                "Comprobacion servidor",
-                "Encriptacion/Desencriptacin"
-        };
+            /// Layout
+            setContentView(R.layout.layout_debug_main);
+            /// Listview
+            final ListView listView = (ListView) findViewById(R.id.debug_main_listView);
+            /// String para el ListView
+            String[] values = new String[]{
+                    "Uso de la memoria", //id 0
+                    "Comprobacion servidor", // id 1
+                    "Encriptacion/Desencriptacin", //id 2
+                    "Envío SMS", //id 3
+                    "Configuración usuario",
+                    "Lectura .LOG"
+            };
+            /// Creación del adaptador con su String
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
+                    android.R.layout.simple_list_item_1, android.R.id.text1, values);
+            /// Vinculación del adaptador con la lista
+            listView.setAdapter(adapter);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1, android.R.id.text1, values);
+            /// Creación del OnClickListener para las pulsaciones
+            ////////////////////////////////////////////////////////////////////
 
-        listView.setAdapter(adapter);
+            // ListView Item Click Listener
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-        ////////////////////////////////////////////////////
-        // Cálculo de información de la aplicación para depuración
-        ////////////////////////////////////////////////////
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view,
+                                        int position, long id) {
 
+                    Class actToLoad = null;
 
-        // Memoria usada (Solo API > 16 )
+                    switch(position) {
+                        case 0: //"Uso de la memoria"
+                            actToLoad = actDebugMemory.class;
+                            break;
+                    }
+
+                    Intent newIntent;
+                    newIntent = new Intent().setClass(actMainDebug.this, actToLoad);
+                    startActivity(newIntent);
+
+                    /*
+                    // ListView Clicked item index
+                    int itemPosition = position;
+
+                    // ListView Clicked item value
+                    String itemValue = (String) listView.getItemAtPosition(position);
+
+                    // Show Alert
+                    Toast.makeText(getApplicationContext(),
+                            "Position :" + itemPosition + "  ListItem : " + itemValue, Toast.LENGTH_LONG)
+                            .show();
+                    */
+                }
+
+            });
+
+        /// Fin creación listView
+        ////////////////////////////////////////////////////////////////////
+
         /*
-        TextView usedMemoryText = (TextView) findViewById(R.id.debug_used_memory);
-        Long memoriaUsada = AppInfo.getUsedMemory();
-        Long memoriaTotal = AppInfo.getTotalMemory();
-        usedMemoryText.setText("Usada: " + String.valueOf(memoriaUsada) + " mb/ " + "Total: " + String.valueOf(memoriaTotal) + "mb");
-        */
-
-        /*
-        ProgressBar usedMemoryBar = (ProgressBar) findViewById(R.id.debug_progress_bar_used_memory);
-        // Escalamos a 100 como referencia para la barra de progreso
-        usedMemoryBar.setMax(100);
-        usedMemoryBar.setProgress((int) ((memoriaUsada * 100.0f) / memoriaTotal));
-        */
-
         //Texto de la dirección de servidor
         /*TextView serverAddress = (TextView) findViewById(R.id.edit_server_adress);
         serverAddress.setText(Constants.SERVER_URL);
@@ -75,8 +106,7 @@ public class actMainDebug extends ActionBarActivity {
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_act_main_debug, menu);
+
         return true;
     }
 
@@ -100,9 +130,9 @@ public class actMainDebug extends ActionBarActivity {
     }
 
 
-    /**
-     * Pulsado el botón de comprobación online
-     */
+
+    /*
+
     public void main_debug_button_check_online(View view) {
         ////////////////////////////////////////////////////
         // Comprobación de estado online servidor
@@ -150,9 +180,9 @@ public class actMainDebug extends ActionBarActivity {
             /////////
             AlertDialogShow popup_conn = new AlertDialogShow();
             popup_conn.setTitulo(getResources().getString(R.string.check_server_conn_title));
-            if (resultado.equals( getResources().getString(R.string.ERROR)  )) {
+            if (resultado.equals(getResources().getString(R.string.ERROR))) {
                 popup_conn.setMessage(getResources().getString(R.string.check_server_conn_error));
-            }else {
+            } else {
                 popup_conn.setMessage(getResources().getString(R.string.check_server_conn_ok));
             }
             popup_conn.setLabelNeutral(getResources().getString(R.string.close_window));
@@ -161,18 +191,15 @@ public class actMainDebug extends ActionBarActivity {
         }
     }
 
-    /**
-     * Pulsado el botón de cifrado AES128
-     * Ciframos una cadena y la mostramos
-     */
     public void main_debug_button_cifrado_test(View view) throws Exception {
+
 
         //Obtenemos el texto de la caja de texto
         TextView textEditConTextoACifrar = (TextView) findViewById(R.id.edit_string_cifrado_input);
         String textoACifrar = textEditConTextoACifrar.getText().toString();
 
-        if( textoACifrar.isEmpty() ) {
-            Toast.makeText(this, getResources().getString(R.string.error_empty_string) , Toast.LENGTH_SHORT ).show();
+        if (textoACifrar.isEmpty()) {
+            Toast.makeText(this, getResources().getString(R.string.error_empty_string), Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -185,21 +212,17 @@ public class actMainDebug extends ActionBarActivity {
         TextView textEditConCifrado = (TextView) findViewById(R.id.edit_string_cifrado_output);
         textEditConCifrado.setText(cifrado);
 
-        AppLog.i(">>actMainDebug<< texto cifrado",cifrado);
+        AppLog.i(">>actMainDebug<< texto cifrado", cifrado);
     }
 
-    /**
-     * Pulsado el botón de descifrado AES128
-     * Desciframos una cadena y la mostramos
-     */
     public void main_debug_button_descifrado_test(View view) throws Exception {
 
         //Obtenemos el texto de la caja de texto
         TextView textEditConTextoADescifrar = (TextView) findViewById(R.id.edit_string_cifrado_input);
         String textoADescifrar = textEditConTextoADescifrar.getText().toString();
 
-        if( textoADescifrar.isEmpty() ) {
-            Toast.makeText(this, getResources().getString(R.string.error_empty_string) , Toast.LENGTH_SHORT ).show();
+        if (textoADescifrar.isEmpty()) {
+            Toast.makeText(this, getResources().getString(R.string.error_empty_string), Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -210,18 +233,10 @@ public class actMainDebug extends ActionBarActivity {
 
         //Obtenemos la caja de texto de salida
         TextView textEditConDescifrado = (TextView) findViewById(R.id.edit_string_cifrado_output);
-        textEditConDescifrado.setText( descifrado );
+        textEditConDescifrado.setText(descifrado);
 
-        AppLog.i(">>actMainDebug<< texto descrifrado",descifrado);
+        AppLog.i(">>actMainDebug<< texto descrifrado", descifrado);
     }
-
-
-
-    /**
-     * Mostramos si hay conexión a internet en el color de fondo de la caja de texto
-     *
-     * @param serverAddress la caja de TextEdit que tenemos que cambiar de color
-     */
 
     private void showConnectionToInternetInTextBackground(TextView serverAddress) {
         //Comprobación de que exista conexión de datos en el teléfono
@@ -235,4 +250,6 @@ public class actMainDebug extends ActionBarActivity {
             serverAddress.setBackgroundColor(getResources().getColor(R.color.red));
         }
     }
+    */
+
 } // Fin actividadMainDebug

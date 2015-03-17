@@ -47,7 +47,7 @@
             </intent-filter>
         </activity>
 
-        <!-- Actividad principal Modo Online-->
+        <!-- Actividad principal Modo Online -->
         <activity
             android:name=".act.online.actMain"
             android:icon="@drawable/ic_launcher"
@@ -57,7 +57,7 @@
             android:theme="@style/Theme.AppCompat.Light" >
         </activity>
 
-        <!-- Actividad principal Modo Offline-->
+        <!-- Actividad principal Modo Offline -->
         <activity
             android:name=".act.offline.actMainOffline"
             android:icon="@drawable/ic_launcher"
@@ -76,7 +76,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".act.online.actMain" />
         </activity>
-
+        <activity
+            android:name=".act.debug.actDebugMemory"
+            android:label="@string/title_activity_act_debug_memory" >
+        </activity>
     </application>
 
 </manifest>
