@@ -10,7 +10,6 @@ public class Networking {
 
     /**
      * F8 sirve para activar los datos en el emulador
-     *
      * @return si existe conexión o no
      */
     public static boolean isConnectedToInternet() {
@@ -28,4 +27,57 @@ public class Networking {
             return false;
         }
     }
+
+    public static boolean activeNetworkNotNull() {
+        Context mContext = GlobalData.getAppContext();
+
+        try {
+            ConnectivityManager cm =
+                    (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+            NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+
+            if ( activeNetwork != null ) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public static boolean activeNetworkIsConnected() {
+        Context mContext = GlobalData.getAppContext();
+
+        try {
+            ConnectivityManager cm =
+                    (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+            NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+
+            return activeNetwork.isConnected();
+
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public static boolean activeNetworkIsAvailable() {
+        Context mContext = GlobalData.getAppContext();
+
+        try {
+            ConnectivityManager cm =
+                    (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+            NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+
+            return activeNetwork.isAvailable();
+
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
 }

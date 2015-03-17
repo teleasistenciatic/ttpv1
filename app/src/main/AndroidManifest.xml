@@ -80,6 +80,10 @@
             android:name=".act.debug.actDebugMemory"
             android:label="@string/title_activity_act_debug_memory" >
         </activity>
+        <activity
+            android:name=".act.debug.actDebugDataConnection"
+            android:label="@string/title_activity_act_debug_data_connection" >
+        </activity>
     </application>
 
 </manifest>

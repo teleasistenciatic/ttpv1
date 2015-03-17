@@ -10,16 +10,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.local.android.teleasistenciaticplus.R;
-import com.local.android.teleasistenciaticplus.act.online.actMain;
-import com.local.android.teleasistenciaticplus.lib.cifrado.Cifrado;
-import com.local.android.teleasistenciaticplus.lib.helper.AlertDialogShow;
-import com.local.android.teleasistenciaticplus.lib.helper.AppLog;
-import com.local.android.teleasistenciaticplus.lib.networking.HttpUrlTextRead;
 import com.local.android.teleasistenciaticplus.lib.networking.Networking;
-import com.local.android.teleasistenciaticplus.modelo.Constants;
+
 
 public class actMainDebug extends ActionBarActivity {
 
@@ -40,13 +34,15 @@ public class actMainDebug extends ActionBarActivity {
             final ListView listView = (ListView) findViewById(R.id.debug_main_listView);
             /// String para el ListView
             String[] values = new String[]{
-                    "Uso de la memoria", //id 0
-                    "Comprobacion servidor", // id 1
-                    "Encriptacion/Desencriptacin", //id 2
-                    "Envío SMS", //id 3
-                    "Configuración usuario",
-                    "Lectura .LOG"
+                    "Configuración usuario",// 0,
+                    "Envío SMS", //id 1
+                    "Lectura .LOG", //id 2
+                    "Encriptacion/Desencriptación", //id 3
+                    "Comprobacion servidor", // id 4
+                    "Acceso de datos e internet", //id 5
+                    "Uso de la memoria", //id 6
             };
+
             /// Creación del adaptador con su String
             ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                     android.R.layout.simple_list_item_1, android.R.id.text1, values);
@@ -66,8 +62,11 @@ public class actMainDebug extends ActionBarActivity {
                     Class actToLoad = null;
 
                     switch(position) {
-                        case 0: //"Uso de la memoria"
+                        case 6: //"Uso de la memoria"
                             actToLoad = actDebugMemory.class;
+                            break;
+                        case 5: //""Acceso de datos e internet""
+                            actToLoad = actDebugDataConnection.class;
                             break;
                     }
 
@@ -125,11 +124,14 @@ public class actMainDebug extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
+    /**
+     * Fin de la activity
+     * @param view vista
+     */
     public void exit_button(View view) {
         finish();
     }
-
-
 
     /*
 
@@ -238,18 +240,6 @@ public class actMainDebug extends ActionBarActivity {
         AppLog.i(">>actMainDebug<< texto descrifrado", descifrado);
     }
 
-    private void showConnectionToInternetInTextBackground(TextView serverAddress) {
-        //Comprobación de que exista conexión de datos en el teléfono
-        final Boolean isNetworkAvailable = Networking.isConnectedToInternet();
-
-        if (isNetworkAvailable) {
-            //Server online fondo verde
-            serverAddress.setBackgroundColor(getResources().getColor(R.color.green));
-        } else {
-            //Server offline fondo rojo
-            serverAddress.setBackgroundColor(getResources().getColor(R.color.red));
-        }
-    }
     */
 
 } // Fin actividadMainDebug
