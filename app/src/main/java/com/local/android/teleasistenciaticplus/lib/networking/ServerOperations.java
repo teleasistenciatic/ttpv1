@@ -228,6 +228,7 @@ public class ServerOperations {
         String textRead = "";
 
         //borramos el aviso
+
         try {
             HttpUrlTextRead miUrl = new HttpUrlTextRead(ConstURLCreate);
             textRead = miUrl.getText();
