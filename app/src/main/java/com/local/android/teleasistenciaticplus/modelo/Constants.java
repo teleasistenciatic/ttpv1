@@ -53,5 +53,4 @@ public interface Constants {
     ////////////////////////////////////////////////
     public static final int HTTP_OPERATION_DELAY = 1000;
 
-
 }

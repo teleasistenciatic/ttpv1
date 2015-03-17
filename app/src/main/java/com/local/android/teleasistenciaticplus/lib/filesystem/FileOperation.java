@@ -16,6 +16,12 @@ import java.util.Date;
 
 public class FileOperation implements Constants {
 
+    /**
+     * Un mensaje de debug tienen la opción de ser escritos a un fichero LOG
+     * esta opción de LOG se define en Constants (LOG_TO_FILE = false;)
+     * @param tag La clase o módulo donde se lanza el mensaje
+     * @param msg El mensaje generado
+     */
     public static void fileLogWrite(String tag, String msg) {
         {
             //Timestamp
