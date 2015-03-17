@@ -12,6 +12,7 @@ public interface Constants {
     ////////////////////////////////////////////////
 
         public static final DebugLevel DEBUG_LEVEL = DebugLevel.DEBUG;
+
         public static final Boolean LOG_TO_FILE = false;
         public static final String DEBUG_LOG_FILE = "sdcard/teleasistencia.log";
 
@@ -19,7 +20,7 @@ public interface Constants {
     // MISCELANEA
     ////////////////////////////////////////////////
 
-        public static final long LOADING_SCREEN_TIME = 2000; //Con 1000 a veces da problemas, no le ha dado tiempo a terminar de ejecutar la lectura del archivo
+        public static final long LOADING_SCREEN_DELAY = 2000; //Con 1000 a veces da problemas, no le ha dado tiempo a terminar de ejecutar la lectura del archivo
         public static final long MEMORY_DIVIDER = 1048576L; //BytestoMegabytes
 
         /*

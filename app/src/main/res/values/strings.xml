@@ -16,6 +16,7 @@
 
     <!-- Activity actMain -->
         <string name="title_activity_act_main">Pantalla inicial - nombre usuario</string>
+
         <!-- Menus -->
         <string name="menu_actmain_debug_screen">Pantalla de depuración</string>
         <string name="menu_actmain_exit_app">Salida</string>
@@ -68,8 +69,14 @@
         <string name="check_user_account_ok">Bienvenid@</string>
         <string name="check_user_account_retry">Reintentar</string>
 
+    <!-- Actividad main offline -->
+        <string name="action_settings">Settings</string>
+        <string name="title_activity_act_main_offline">Pantalla principal (offline)</string>
+    <!-- Fin cadenas actMain offline -->
 
-    <string name="title_activity_act_main_debug">Pantalla de depuracion</string>
-    <string name="action_settings">Settings</string>
+    <!-- Actividad main debug -->
+        <string name="title_activity_act_main_debug">Pantalla de depuracion</string>
+        <string name="sms_button_text">Aviso a familiar</string>
+    <!-- Fin cadenas actMain Debug -->
 
 </resources>

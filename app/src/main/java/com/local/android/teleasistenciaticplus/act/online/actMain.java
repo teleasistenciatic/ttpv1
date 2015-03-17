@@ -1,4 +1,4 @@
-package com.local.android.teleasistenciaticplus;
+package com.local.android.teleasistenciaticplus.act.online;
 
 import android.app.ActionBar;
 import android.content.Intent;
@@ -13,9 +13,12 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.local.android.teleasistenciaticplus.R;
+import com.local.android.teleasistenciaticplus.act.debug.actMainDebug;
 import com.local.android.teleasistenciaticplus.lib.helper.AppLog;
 import com.local.android.teleasistenciaticplus.lib.networking.ServerOperations;
 import com.local.android.teleasistenciaticplus.modelo.Constants;
+import com.local.android.teleasistenciaticplus.modelo.DebugLevel;
 
 /**
  * Actividad principal
@@ -68,7 +71,7 @@ public class actMain extends ActionBarActivity implements Constants {
         // Inflate the menu;
 
         // Si estamos en modo de depuración
-        if ( Constants.DEBUG_LEVEL == DEBUG_LEVEL.DEBUG ) {
+        if ( Constants.DEBUG_LEVEL == DebugLevel.DEBUG ) {
             getMenuInflater().inflate(R.menu.menu_act_main, menu);
         } else { //si estamos en modo de producción no mostramos el menu de depuración
             getMenuInflater().inflate(R.menu.menu_act_main_produccion, menu);

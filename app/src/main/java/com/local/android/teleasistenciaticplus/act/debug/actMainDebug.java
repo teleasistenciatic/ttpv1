@@ -1,4 +1,4 @@
-package com.local.android.teleasistenciaticplus;
+package com.local.android.teleasistenciaticplus.act.debug;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -9,6 +9,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.local.android.teleasistenciaticplus.R;
 import com.local.android.teleasistenciaticplus.lib.cifrado.Cifrado;
 import com.local.android.teleasistenciaticplus.lib.helper.AlertDialogShow;
 import com.local.android.teleasistenciaticplus.lib.helper.AppInfo;

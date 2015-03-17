@@ -45,7 +45,7 @@ public class ServerOperations {
      * Comprobación de usuario registrado en el sistema
      * @return boolean con la condición de registrado o no
      */
-    public static boolean isRegisteredInServer() {
+    public static boolean isRegisteredOnServer() {
 
         //recuperamos el número del terminal
         String phoneNumber = GlobalData.getPhoneNumber();

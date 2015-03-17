@@ -27,7 +27,7 @@ public class Hook extends Application {
         GlobalData.setContext( getApplicationContext() );
         GlobalData.setPhoneNumber( new PhoneData().getNumber() );
 
-        AppLog.i("Hook.class", "Ejecutado Hook de aplicación"); //:LOG:
+        AppLog.i("Hook.class", "Ejecutado Hook de aplicación");
     }
 
 } //Fin CLASS

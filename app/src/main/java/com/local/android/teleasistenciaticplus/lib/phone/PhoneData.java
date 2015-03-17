@@ -10,6 +10,7 @@ import com.local.android.teleasistenciaticplus.modelo.GlobalData;
  * Created by GAMO1J on 02/03/2015.
  * Clase para recuperar los datos del terminal
  */
+
 public class PhoneData {
 
     private Context mContext; //Contexto privado que saco de la global de la aplicación

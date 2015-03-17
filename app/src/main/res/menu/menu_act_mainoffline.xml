@@ -1,16 +1,15 @@
-<menu
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.local.android.teleasistenciaticplus.act.online.actMain">
+    tools:context="com.local.android.teleasistenciaticplus.act.offline.actMainOffline">
     <item
-        android:id="@+id/menu_actmain_debug_screen"
+        android:id="@+id/menu_actmainoffline_debug_screen"
         android:orderInCategory="100"
         android:title="@string/menu_actmain_debug_screen"
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/menu_actmain_exit_app"
+        android:id="@+id/menu_actmainoffline_exit_app"
         android:orderInCategory="100"
         android:title="@string/menu_actmain_exit_app"
         app:showAsAction="never" />

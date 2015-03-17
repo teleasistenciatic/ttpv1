@@ -17,7 +17,7 @@ public class GlobalData extends Application {
     private static Context context; //Contexto de la aplicación
     private static String phoneNumber; //Número de teléfono del terminal
 
-    private static OperationLevel operationMode; //Modo de operación de funcionamiento
+    private static OperationMode operationMode; //Modo de operación de funcionamiento
 
     /**
      * Se guarda el contexto de la aplicación
@@ -53,7 +53,7 @@ public class GlobalData extends Application {
      * Devuelve el modo de operación
      * @return enumeración del modo de operación
      */
-    public static OperationLevel getOperationMode() {
+    public static OperationMode getOperationMode() {
         return operationMode;
     }
 
@@ -61,7 +61,7 @@ public class GlobalData extends Application {
      * Establece el modo de operación
      * @param operationMode
      */
-    public static void setOperationMode(OperationLevel operationMode) {
+    public static void setOperationMode(OperationMode operationMode) {
         GlobalData.operationMode = operationMode;
     }
 }

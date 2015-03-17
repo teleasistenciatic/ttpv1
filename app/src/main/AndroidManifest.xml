@@ -12,18 +12,18 @@
         android:minSdkVersion="16" />
 
     <!-- Permisos -->
-        <uses-permission android:name="android.permission.INTERNET" />
-        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-        <!-- Almacenamiento -->
-        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-        <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-        <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
-        <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
+    <!-- Almacenamiento -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
 
-        <!-- GPS -->
-        <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-        <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- GPS -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <!-- Aplicacion -->
     <application
@@ -33,10 +33,9 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
 
-
         <!-- Actividad de carga, MAIN -->
         <activity
-            android:name=".actLoadingScreen"
+            android:name=".act.actLoadingScreen"
             android:icon="@drawable/ic_launcher"
             android:label="@string/app_name"
             android:relinquishTaskIdentity="true"
@@ -48,25 +47,35 @@
             </intent-filter>
         </activity>
 
-        <!-- Actividad principal -->
+        <!-- Actividad principal Modo Online-->
         <activity
-            android:name=".actMain"
+            android:name=".act.online.actMain"
             android:icon="@drawable/ic_launcher"
+            android:label="@string/title_activity_act_main"
             android:logo="@drawable/ic_launcher"
-            android:label="Pantalla inicial"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light">
+            android:theme="@style/Theme.AppCompat.Light" >
+        </activity>
+
+        <!-- Actividad principal Modo Offline-->
+        <activity
+            android:name=".act.offline.actMainOffline"
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/title_activity_act_main_offline"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light" >
         </activity>
 
         <!-- Actividad principal Debug -->
         <activity
-            android:name=".actMainDebug"
+            android:name=".act.debug.actMainDebug"
             android:label="@string/title_activity_act_main_debug"
-            android:parentActivityName=".actMain" >
+            android:parentActivityName=".act.online.actMain" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.local.android.teleasistenciaticplus.actMain" />
+                android:value=".act.online.actMain" />
         </activity>
+
     </application>
 
 </manifest>
