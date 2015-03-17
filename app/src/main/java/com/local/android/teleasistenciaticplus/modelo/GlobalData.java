@@ -16,7 +16,8 @@ public class GlobalData extends Application {
 
     private static Context context; //Contexto de la aplicación
     private static String phoneNumber; //Número de teléfono del terminal
-    private static Boolean offlineMode; //Modo de operación de funcionamiento (offline u online)
+
+    private static OperationLevel operationMode; //Modo de operación de funcionamiento
 
     /**
      * Se guarda el contexto de la aplicación
@@ -49,19 +50,18 @@ public class GlobalData extends Application {
     public static String getPhoneNumber() { return GlobalData.phoneNumber;}
 
     /**
-     * Devuelve si se encuentra en modo OFFLINE u ONLINE
-     * @return boolean Si está en modo offline
+     * Devuelve el modo de operación
+     * @return enumeración del modo de operación
      */
-    public static Boolean getOfflineMode() {
-        return offlineMode;
+    public static OperationLevel getOperationMode() {
+        return operationMode;
     }
 
     /**
-     * Establece si se encuentra en modo offline
-     * @param offlineMode
+     * Establece el modo de operación
+     * @param operationMode
      */
-    public static void setOfflineMode(Boolean offlineMode) {
-        GlobalData.offlineMode = offlineMode;
+    public static void setOperationMode(OperationLevel operationMode) {
+        GlobalData.operationMode = operationMode;
     }
-
 }
