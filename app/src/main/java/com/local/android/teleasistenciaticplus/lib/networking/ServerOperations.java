@@ -78,7 +78,7 @@ public class ServerOperations {
         //Si el server nos devuelve el string "true" el usuario está registrado
         if (textRead != null) {
             if (textRead.equals("true")) {
-                AppLog.i("ServerOperations", textRead);
+                //AppLog.i("ServerOperations", textRead);
                 return true;
             } else {
                 AppLog.i("ServerOperations", "Error accediendo a la dirección:\"" + ConstUrlPhoneCheck + "\"");

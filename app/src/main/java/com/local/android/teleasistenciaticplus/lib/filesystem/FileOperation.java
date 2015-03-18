@@ -21,6 +21,19 @@ import java.util.Date;
 
 public class FileOperation implements Constants {
 
+    public static void fileLogInitialize() {
+
+        File sdcard = Environment.getExternalStorageDirectory();
+        File logFile = new File(sdcard,DEBUG_LOG_FILE);
+
+        if (logFile.exists()) {
+            fileLogErase();
+        }
+    }
+
+    /**
+     * Borrado del fichero de log
+     */
     public static void fileLogErase() {
 
         File sdcard = Environment.getExternalStorageDirectory();
@@ -52,8 +65,6 @@ public class FileOperation implements Constants {
 
             File sdcard = Environment.getExternalStorageDirectory();
             File logFile = new File(sdcard,DEBUG_LOG_FILE);
-
-            //Log.i("Creación de fichero", "fichero creado");
 
             //////////// En el caso que no quisieramos borrar el fichero ///////
             if (!logFile.exists()) {

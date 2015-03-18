@@ -28,7 +28,8 @@ public class Hook extends Application {
         GlobalData.setContext( getApplicationContext() );
         GlobalData.setPhoneNumber( new PhoneData().getNumber() );
 
-        FileOperation.fileLogErase();
+        //Si existe el fichero de LOG se inicializa
+        FileOperation.fileLogInitialize();
 
         AppLog.i("Hook.class", "Ejecutado Hook de aplicación");
     }
