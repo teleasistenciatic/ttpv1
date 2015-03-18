@@ -76,18 +76,22 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".act.online.actMain" />
         </activity>
-            <activity
-                android:name=".act.debug.actDebugMemory"
-                android:label="@string/title_activity_act_debug_memory" >
-            </activity>
-            <activity
-                android:name=".act.debug.actDebugDataConnection"
-                android:label="@string/title_activity_act_debug_data_connection" >
-            </activity>
-            <activity
-                android:name=".act.debug.actDebugCheckServer"
-                android:label="@string/title_activity_act_debug_check_server" >
-            </activity>
+        <activity
+            android:name=".act.debug.actDebugMemory"
+            android:label="@string/title_activity_act_debug_memory" >
+        </activity>
+        <activity
+            android:name=".act.debug.actDebugDataConnection"
+            android:label="@string/title_activity_act_debug_data_connection" >
+        </activity>
+        <activity
+            android:name=".act.debug.actDebugCheckServer"
+            android:label="@string/title_activity_act_debug_check_server" >
+        </activity>
+        <activity
+            android:name=".act.debug.actDebugCifrado"
+            android:label="@string/title_activity_act_debug_cifrado" >
+        </activity>
         <!-- Fin actividades Depuración -->
 
     </application>
