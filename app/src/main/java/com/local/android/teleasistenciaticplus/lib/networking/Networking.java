@@ -28,6 +28,10 @@ public class Networking {
         }
     }
 
+    /**
+     * La red activa no es null
+     * @return boolean
+     */
     public static boolean activeNetworkNotNull() {
         Context mContext = GlobalData.getAppContext();
 
@@ -48,6 +52,10 @@ public class Networking {
         }
     }
 
+    /**
+     * La red activa está conectada
+     * @return boolean
+     */
     public static boolean activeNetworkIsConnected() {
         Context mContext = GlobalData.getAppContext();
 
@@ -64,6 +72,10 @@ public class Networking {
         }
     }
 
+    /**
+     * La red activa está disponible
+     * @return boolean
+     */
     public static boolean activeNetworkIsAvailable() {
         Context mContext = GlobalData.getAppContext();
 

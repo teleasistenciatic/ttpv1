@@ -77,8 +77,10 @@
     <!-- Actividad main debug -->
         <string name="title_activity_act_main_debug">Pantalla de depuracion</string>
         <string name="sms_button_text">Aviso a familiar</string>
-    <string name="title_activity_act_debug_memory">Memoria</string>
-    <string name="title_activity_act_debug_data_connection">actDebugDataConnection</string>
+
+        <string name="title_activity_act_debug_memory">Debug > Memoria</string>
+        <string name="title_activity_act_debug_data_connection">Debug > DataConnection</string>
+        <string name="title_activity_act_debug_check_server">Debug > CheckServer</string>
     <!-- Fin cadenas actMain Debug -->
 
 </resources>

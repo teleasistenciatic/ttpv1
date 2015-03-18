@@ -38,7 +38,7 @@ public class actMainDebug extends ActionBarActivity {
                     "Envío SMS", //id 1
                     "Lectura .LOG", //id 2
                     "Encriptacion/Desencriptación", //id 3
-                    "Comprobacion servidor", // id 4
+                    "Comprobacion conexión a servidor", // id 4
                     "Acceso de datos e internet", //id 5
                     "Uso de la memoria", //id 6
             };
@@ -65,8 +65,11 @@ public class actMainDebug extends ActionBarActivity {
                         case 6: //"Uso de la memoria"
                             actToLoad = actDebugMemory.class;
                             break;
-                        case 5: //""Acceso de datos e internet""
+                        case 5: //"Acceso de datos e internet"
                             actToLoad = actDebugDataConnection.class;
+                            break;
+                        case 4: //"Comprobacion conexión a servidor"
+                            actToLoad = actDebugCheckServer.class;
                             break;
                     }
 
@@ -109,6 +112,11 @@ public class actMainDebug extends ActionBarActivity {
         return true;
     }
 
+    /**
+     * Opciones del menú
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -124,7 +132,6 @@ public class actMainDebug extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
     /**
      * Fin de la activity
      * @param view vista
@@ -134,64 +141,6 @@ public class actMainDebug extends ActionBarActivity {
     }
 
     /*
-
-    public void main_debug_button_check_online(View view) {
-        ////////////////////////////////////////////////////
-        // Comprobación de estado online servidor
-        ////////////////////////////////////////////////////
-
-        //Interfaz
-        TextView serverAddress = (TextView) findViewById(R.id.edit_server_adress);
-
-        String url = serverAddress.getText().toString(); //primero usamos la introducida en la caja de texto
-
-        if (url.length() == 0) {  //Si la cadena está vacia usamos la url por defecto
-            serverAddress.setText(Constants.SERVER_URL);
-        }
-
-        Boolean isNetworkAvailable = Networking.isConnectedToInternet();
-
-        showConnectionToInternetInTextBackground(serverAddress); //Indicamos el estado online mediante color rojo o verde
-
-        //Comprobación de el servidor está disponible (se hace mediante la lectura de un fichero en el mismo)
-        //y sólo se realiza si existe conexión de internet
-
-        if (isNetworkAvailable) {
-
-            String textRead = null;
-
-            try {
-                HttpUrlTextRead miUrl = new HttpUrlTextRead(url);
-                textRead = miUrl.getText();
-            } catch (Exception e) {
-                AppLog.d("actMainDebug", "Error leyendo el archivo");
-            }
-
-            String resultado;
-
-            if (textRead == null) {
-                resultado = getResources().getString(R.string.ERROR);
-                AppLog.i("actMainDebug", "Error accediendo a la dirección:\"" + url + "\"");
-            } else {
-                resultado = getResources().getString(R.string.CORRECTO);
-                AppLog.i("actMainDebug", textRead);
-            }
-
-            /////////
-            //Generación de alerta en pantalla con el resultado de la conexión
-            /////////
-            AlertDialogShow popup_conn = new AlertDialogShow();
-            popup_conn.setTitulo(getResources().getString(R.string.check_server_conn_title));
-            if (resultado.equals(getResources().getString(R.string.ERROR))) {
-                popup_conn.setMessage(getResources().getString(R.string.check_server_conn_error));
-            } else {
-                popup_conn.setMessage(getResources().getString(R.string.check_server_conn_ok));
-            }
-            popup_conn.setLabelNeutral(getResources().getString(R.string.close_window));
-            popup_conn.show(getFragmentManager(), "internetAccessTAG");
-            //Fin del mensaje de alerta
-        }
-    }
 
     public void main_debug_button_cifrado_test(View view) throws Exception {
 

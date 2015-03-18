@@ -26,7 +26,7 @@ public class actDebugDataConnection extends ActionBarActivity {
 
     /**
      * Comprueba si hay conexión de datos y lo muestra con color de fondo en una caja de introducción de texto
-     * @param view
+     * @param view vista
      */
     public void main_debug_data_connection_check(View view) {
 
@@ -38,41 +38,27 @@ public class actDebugDataConnection extends ActionBarActivity {
         Boolean isNetworkAvailable = Networking.isConnectedToInternet();
 
         setTextBackground(dataConnection,isNetworkAvailable); //Muestra si es positivo o negativo en base al color de fondo de la caja de texto
-        setTextBackground(activeNetwork, Networking.activeNetworkNotNull() );
-        setTextBackground(activeNetworkAvailable, Networking.activeNetworkIsAvailable() );
-        setTextBackground(activeNetworkConnected, Networking.activeNetworkIsConnected() );
 
         ///////////////////////////////////////////////////////////
         // Comprobaciones pormenorizadas para más información
         ///////////////////////////////////////////////////////////
-
+        setTextBackground(activeNetwork, Networking.activeNetworkNotNull() );
+        setTextBackground(activeNetworkAvailable, Networking.activeNetworkIsAvailable() );
+        setTextBackground(activeNetworkConnected, Networking.activeNetworkIsConnected() );
     }
 
-    /*
-     public static boolean isConnectedToInternet() {
-        Context mContext = GlobalData.getAppContext();
-
-        try {
-            ConnectivityManager cm =
-                    (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
-
-            NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-            return activeNetwork != null &&
-                    activeNetwork.isAvailable() &&
-                    activeNetwork.isConnected();
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
+    /**
+     * Helper que mostrará los valores true/false de forma gráfica
+     * asignando el fondo de color verde o rojo.
+     * @param textView el Textview de la caja de texto a la que se le cambiará el color de fondo
+     * @param valorPositivo si lo queremos en true o false
      */
-
-    private void setTextBackground(TextView serverAddress, Boolean valorPositivo) {
+    private void setTextBackground(TextView textView, Boolean valorPositivo) {
 
         if ( valorPositivo ) {
-            serverAddress.setBackgroundColor(getResources().getColor(R.color.green));
+            textView.setBackgroundColor(getResources().getColor(R.color.green));
         } else {
-            serverAddress.setBackgroundColor(getResources().getColor(R.color.red));
+            textView.setBackgroundColor(getResources().getColor(R.color.red));
         }
     }
 
