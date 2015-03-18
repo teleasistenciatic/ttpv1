@@ -1,9 +1,14 @@
 package com.local.android.teleasistenciaticplus.lib.filesystem;
 
+import android.os.Environment;
+import android.widget.TextView;
+
 import com.local.android.teleasistenciaticplus.modelo.Constants;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -16,9 +21,24 @@ import java.util.Date;
 
 public class FileOperation implements Constants {
 
+    public static void fileLogErase() {
+
+        File sdcard = Environment.getExternalStorageDirectory();
+        File logFile = new File(sdcard,DEBUG_LOG_FILE);
+
+        try {
+            logFile.delete();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+    }
+
     /**
      * Un mensaje de debug tienen la opción de ser escritos a un fichero LOG
      * esta opción de LOG se define en Constants (LOG_TO_FILE = false;)
+     *
      * @param tag La clase o módulo donde se lanza el mensaje
      * @param msg El mensaje generado
      */
@@ -30,11 +50,13 @@ public class FileOperation implements Constants {
 
             String text = currentDateandTime + tag + "--> " + msg;
 
-            File logFile = new File(DEBUG_LOG_FILE);
+            File sdcard = Environment.getExternalStorageDirectory();
+            File logFile = new File(sdcard,DEBUG_LOG_FILE);
+
             //Log.i("Creación de fichero", "fichero creado");
 
             //////////// En el caso que no quisieramos borrar el fichero ///////
-            if ( !logFile.exists() ) {
+            if (!logFile.exists()) {
                 try {
                     logFile.createNewFile();
                 } catch (IOException e) {
@@ -54,5 +76,43 @@ public class FileOperation implements Constants {
                 e.printStackTrace();
             }
         }
+    }
+
+    public static String fileRead(String fileName) {
+
+        //Find the directory for the SD Card using the API
+        //*Don't* hardcode "/sdcard"
+        File sdcard = Environment.getExternalStorageDirectory();
+
+        //Get the text file
+        File file = new File(sdcard, fileName);
+
+        //Read text from file
+        StringBuilder text = new StringBuilder();
+
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+
+            while ((line = br.readLine()) != null) {
+                text.append(line);
+                text.append('\n');
+            }
+            br.close();
+        } catch (IOException e) {
+            //You'll need to add proper error handling here
+        }
+
+        return text.toString();
+    }
+
+    /**
+     * Lectura del fichero por defecto de LOG de sistema que se encuentra en CONSTANTS.
+     * @return
+     */
+    public static String fileLogRead() {
+
+      return ( fileRead( Constants.DEBUG_LOG_FILE )) ;
+
     }
 }

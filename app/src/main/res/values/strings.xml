@@ -82,6 +82,7 @@
         <string name="title_activity_act_debug_data_connection">Debug > DataConnection</string>
         <string name="title_activity_act_debug_check_server">Debug > CheckServer</string>
         <string name="title_activity_act_debug_cifrado">Debug > Cifrado/Descifrado</string>
+    <string name="title_activity_act_debug_show_log">Debug > ShowLog</string>
     <!-- Fin cadenas actMain Debug -->
 
 </resources>

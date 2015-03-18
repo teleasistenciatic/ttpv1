@@ -74,6 +74,9 @@ public class actMainDebug extends ActionBarActivity {
                         case 3: //"Cifrado Descifrado"
                             actToLoad = actDebugCifrado.class;
                             break;
+                        case 2: //"Lectura de log de depuración"
+                            actToLoad = actDebugShowLog.class;
+                            break;
                     }
 
                     Intent newIntent;

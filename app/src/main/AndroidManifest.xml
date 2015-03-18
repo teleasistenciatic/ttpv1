@@ -71,26 +71,34 @@
         <activity
             android:name=".act.debug.actMainDebug"
             android:label="@string/title_activity_act_main_debug"
-            android:parentActivityName=".act.online.actMain" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".act.online.actMain" />
+            android:parentActivityName=".act.online.actMain">
+
         </activity>
         <activity
             android:name=".act.debug.actDebugMemory"
-            android:label="@string/title_activity_act_debug_memory" >
+            android:label="@string/title_activity_act_debug_memory"
+            android:parentActivityName=".act.debug.actMainDebug">
         </activity>
         <activity
             android:name=".act.debug.actDebugDataConnection"
-            android:label="@string/title_activity_act_debug_data_connection" >
+            android:label="@string/title_activity_act_debug_data_connection"
+            android:parentActivityName=".act.debug.actMainDebug">
+
         </activity>
         <activity
             android:name=".act.debug.actDebugCheckServer"
-            android:label="@string/title_activity_act_debug_check_server" >
+            android:label="@string/title_activity_act_debug_check_server"
+            android:parentActivityName=".act.debug.actMainDebug">
         </activity>
         <activity
             android:name=".act.debug.actDebugCifrado"
-            android:label="@string/title_activity_act_debug_cifrado" >
+            android:label="@string/title_activity_act_debug_cifrado"
+            android:parentActivityName=".act.debug.actMainDebug">
+        </activity>
+        <activity
+            android:name=".act.debug.actDebugShowLog"
+            android:label="@string/title_activity_act_debug_show_log"
+            android:parentActivityName=".act.debug.actMainDebug">
         </activity>
         <!-- Fin actividades Depuración -->
 
