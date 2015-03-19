@@ -52,6 +52,14 @@
         android:text="Enviar un SMS" />
 
     <Button
+        android:id="@+id/debug_sms_get_contact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:onClick="get_contact_from_contactlist"
+        android:text="Obtener contacto" />
+
+    <Button
         android:id="@+id/debug_screen_button_exit"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

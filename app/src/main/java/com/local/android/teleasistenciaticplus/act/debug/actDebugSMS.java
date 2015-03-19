@@ -1,13 +1,19 @@
 package com.local.android.teleasistenciaticplus.act.debug;
 
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
+import android.provider.ContactsContract;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 
 import android.telephony.SmsManager;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.local.android.teleasistenciaticplus.R;
 import com.local.android.teleasistenciaticplus.lib.networking.SmsDispatcher;
@@ -39,6 +45,34 @@ public class actDebugSMS extends ActionBarActivity {
         new SmsDispatcher(phoneNumber , smsBodyText).send();
     }
 
+    public void get_contact_from_contactlist(View view) {
+
+        //Abrir la lista de contactos
+        Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+
+        startActivityForResult(intent, 1);
+
+    }
+
+    @Override
+    public void onActivityResult(int reqCode, int resultCode, Intent data) {
+        super.onActivityResult(reqCode, resultCode, data);
+
+        switch (reqCode) {
+            case (1) :
+                if (resultCode == Activity.RESULT_OK) {
+                    Uri contactData = data.getData();
+                    Cursor c =  getContentResolver().query(contactData, null, null, null, null);
+                    if (c.moveToFirst()) {
+                        String name = c.getString(c.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
+                        String phoneNumber = c.getString(c.getColumnIndex(ContactsContract.Contacts._ID));
+                        // TODO Whatever you want to do with the selected contact name.
+                        Toast.makeText(getApplicationContext(), phoneNumber, Toast.LENGTH_SHORT).show();
+                    }
+                }
+                break;
+        }
+    }
 
     /**
      * Salida de la aplicación al pulsar el botón de salida del layout
