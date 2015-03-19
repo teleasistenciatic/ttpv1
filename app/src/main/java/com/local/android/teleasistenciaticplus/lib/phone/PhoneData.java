@@ -57,4 +57,8 @@ public class PhoneData {
     public String getNumber() {
         return phoneNumber;
     }
+
+    public String getGPSPos() {
+        return "0:0";
+    }
 }

@@ -14,6 +14,8 @@ import com.local.android.teleasistenciaticplus.R;
  * Sólo mostrará un AlertDialog con un botón.
  */
 
+/* TODO ver si se puede abstraer y simplificar */
+
 public class AlertDialogShow extends DialogFragment {
 
     //Datos de Entrada para la inicialización del dialog

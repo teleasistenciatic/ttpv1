@@ -25,6 +25,9 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
+    <!-- SMS -->
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+
     <!-- Aplicacion -->
     <application
         android:name=".modelo.Hook"
@@ -71,37 +74,39 @@
         <activity
             android:name=".act.debug.actMainDebug"
             android:label="@string/title_activity_act_main_debug"
-            android:parentActivityName=".act.online.actMain">
-
+            android:parentActivityName=".act.online.actMain" >
         </activity>
         <activity
             android:name=".act.debug.actDebugMemory"
             android:label="@string/title_activity_act_debug_memory"
-            android:parentActivityName=".act.debug.actMainDebug">
+            android:parentActivityName=".act.debug.actMainDebug" >
         </activity>
         <activity
             android:name=".act.debug.actDebugDataConnection"
             android:label="@string/title_activity_act_debug_data_connection"
-            android:parentActivityName=".act.debug.actMainDebug">
-
+            android:parentActivityName=".act.debug.actMainDebug" >
         </activity>
         <activity
             android:name=".act.debug.actDebugCheckServer"
             android:label="@string/title_activity_act_debug_check_server"
-            android:parentActivityName=".act.debug.actMainDebug">
+            android:parentActivityName=".act.debug.actMainDebug" >
         </activity>
         <activity
             android:name=".act.debug.actDebugCifrado"
             android:label="@string/title_activity_act_debug_cifrado"
-            android:parentActivityName=".act.debug.actMainDebug">
+            android:parentActivityName=".act.debug.actMainDebug" >
         </activity>
         <activity
             android:name=".act.debug.actDebugShowLog"
             android:label="@string/title_activity_act_debug_show_log"
-            android:parentActivityName=".act.debug.actMainDebug">
+            android:parentActivityName=".act.debug.actMainDebug" >
         </activity>
         <!-- Fin actividades Depuración -->
 
+        <activity
+            android:name=".act.debug.actDebugSMS"
+            android:label="@string/title_activity_act_debug_sms" >
+        </activity>
     </application>
 
 </manifest>

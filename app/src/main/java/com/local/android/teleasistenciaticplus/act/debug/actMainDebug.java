@@ -77,6 +77,9 @@ public class actMainDebug extends ActionBarActivity {
                         case 2: //"Lectura de log de depuración"
                             actToLoad = actDebugShowLog.class;
                             break;
+                        case 1: //"Envio SMS"
+                            actToLoad = actDebugSMS.class;
+                            break;
                     }
 
                     Intent newIntent;
