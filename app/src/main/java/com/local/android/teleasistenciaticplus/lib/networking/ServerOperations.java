@@ -155,14 +155,14 @@ public class ServerOperations {
         }
         if (textRead != null) {
             if (textRead.equals("true")) {
-                AppLog.i("ServerOperations -> ", "Aviso ya estaba activo: " + textRead);
+                AppLog.i("ServerOperations -> ", "Aviso ya estaba activo: ");
                 return true;
             } else {
-                AppLog.i("ServerOperations -> ", "No hay avisos activos: " + textRead);
+                AppLog.i("ServerOperations -> ", "No hay avisos activos: ");
                 return false;
             }
         }
-        AppLog.i("ServerOperations -> ", "ERROR texRead = " + textRead);
+        AppLog.i("ServerOperations -> ", "ERROR texRead ");
         return false;
     }
 

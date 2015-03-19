@@ -4,6 +4,8 @@ import android.content.Context;
 import android.telephony.TelephonyManager;
 
 import com.local.android.teleasistenciaticplus.lib.helper.AppLog;
+import com.local.android.teleasistenciaticplus.modelo.Constants;
+import com.local.android.teleasistenciaticplus.modelo.DebugLevel;
 import com.local.android.teleasistenciaticplus.modelo.GlobalData;
 
 /**
@@ -31,14 +33,21 @@ public class PhoneData {
             tm = (TelephonyManager) mContext.getSystemService(Context.TELEPHONY_SERVICE);
             phoneNumber = tm.getLine1Number();
         } catch (Exception e) {
-            phoneNumber = "012345678";// Antonio Alameda
+            if (Constants.DEBUG_LEVEL == DebugLevel.DEBUG) {
+                phoneNumber = "012345678";// Antonio Alameda
+            }
             AppLog.e("PhoneData","Error recuperando el valor del terminal",e);
         }
 
         if ( phoneNumber.length() == 0) {
+            //////////////////////////////////////
+            // Hardcored para que los teléfonos sin SIM puedan acceder a la aplicación
+            //////////////////////////////////////
+            if (Constants.DEBUG_LEVEL == DebugLevel.DEBUG) {
+                phoneNumber = "012345678";// Antonio Alameda //Los teléfonos sin SIM no tienen teléfonos
+            }
             AppLog.e("PhoneData", "Número de teléfono vacío");
         }
-        //TODO: ver cómo se puede recuperar el teléfono de una segunda tarjeta
     }
 
     /**

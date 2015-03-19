@@ -2,15 +2,12 @@ package com.local.android.teleasistenciaticplus.act.debug;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
 import com.local.android.teleasistenciaticplus.R;
 import com.local.android.teleasistenciaticplus.modelo.Constants;
 
-import static com.local.android.teleasistenciaticplus.lib.filesystem.FileOperation.fileLogRead;
 import static com.local.android.teleasistenciaticplus.lib.filesystem.FileOperation.fileRead;
 
 /**
@@ -27,7 +24,6 @@ public class actDebugShowLog extends ActionBarActivity implements Constants{
         if( textAreaLogFile.getText().length() == 0 ) {
             textAreaLogFile.setText(Constants.DEBUG_LOG_FILE); //Si el fichero está vacio se asigna un nuevo fichero
         }
-
     }
 
     /**
@@ -44,6 +40,14 @@ public class actDebugShowLog extends ActionBarActivity implements Constants{
         String readFile = fileRead(String.valueOf(textAreaLogFile.getText()));
         textArea.setText(readFile);
 
+    }
+
+    /**
+     * Salida de la aplicación al pulsar el botón de salida del layout
+     * @param view vista
+     */
+    public void exit_button(View view) {
+        finish();
     }
 
 }

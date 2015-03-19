@@ -43,7 +43,6 @@ public class actLoadingScreen extends ActionBarActivity implements Constants {
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN; // | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
         decorView2.setSystemUiVisibility(uiOptions);
 
-
         ////////////////////////////////////////////////////
         // LAYOUT
         // Creación de la pantalla de carga
@@ -75,7 +74,7 @@ public class actLoadingScreen extends ActionBarActivity implements Constants {
 
         final Class actToLoad;
 
-        if (GlobalData.getOperationMode() == OperationMode.ONLINE) {
+        if ( GlobalData.getOperationMode() == OperationMode.ONLINE ) {
             actToLoad = actMain.class; //MODO ONLINE
         } else {
             actToLoad = actMainOffline.class; //MODO OFFLINE

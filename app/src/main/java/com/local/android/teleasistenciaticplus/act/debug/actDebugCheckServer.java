@@ -25,6 +25,16 @@ public class actDebugCheckServer extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_debug_check_server);
+
+        //Asignar por defecto el SERVER_URL a la caja correspondiente
+        TextView serverAddress = (TextView) findViewById(R.id.edit_server_adress);
+
+        String url = serverAddress.getText().toString(); //primero usamos la introducida en la caja de texto
+
+        if (url.length() == 0) {  //Si la cadena está vacia usamos la url por defecto
+            serverAddress.setText(Constants.SERVER_URL);
+        }
+
     }
 
     /**
@@ -90,7 +100,7 @@ public class actDebugCheckServer extends ActionBarActivity {
                 popup_conn.setMessage(getResources().getString(R.string.check_server_conn_ok));
             }
             popup_conn.setLabelNeutral(getResources().getString(R.string.close_window));
-            popup_conn.show(getFragmentManager(), "internetAccessTAG");
+            popup_conn.show(getFragmentManager(), "dummyTAG");
             //Fin del mensaje de alerta
         }
     }

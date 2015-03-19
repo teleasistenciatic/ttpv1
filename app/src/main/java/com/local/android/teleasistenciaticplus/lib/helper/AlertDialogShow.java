@@ -21,7 +21,6 @@ public class AlertDialogShow extends DialogFragment {
     String Message;
     String labelNeutral;
 
-
     @Override
     public AlertDialog onCreateDialog(Bundle savedInstanceState) {
         // Usa la clase constructora para la creación del dialog
