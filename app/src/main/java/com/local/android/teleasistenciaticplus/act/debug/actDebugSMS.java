@@ -2,21 +2,19 @@ package com.local.android.teleasistenciaticplus.act.debug;
 
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
-
-import android.telephony.SmsManager;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.local.android.teleasistenciaticplus.R;
 import com.local.android.teleasistenciaticplus.lib.networking.SmsDispatcher;
+import com.local.android.teleasistenciaticplus.lib.phone.PhoneContacts;
 
 
 /**
@@ -32,6 +30,7 @@ public class actDebugSMS extends ActionBarActivity {
 
     /**
      * Debug SMS send
+     *
      * @param view vista
      */
     public void sms_send(View view) {
@@ -42,8 +41,9 @@ public class actDebugSMS extends ActionBarActivity {
         TextView smsMessageEdit = (TextView) findViewById(R.id.debug_edit_sms_message);
         String smsBodyText = smsMessageEdit.getText().toString();
 
-        new SmsDispatcher(phoneNumber , smsBodyText).send();
+        new SmsDispatcher(phoneNumber, smsBodyText).send();
     }
+
 
     public void get_contact_from_contactlist(View view) {
 
@@ -54,28 +54,44 @@ public class actDebugSMS extends ActionBarActivity {
 
     }
 
+/*
     @Override
     public void onActivityResult(int reqCode, int resultCode, Intent data) {
         super.onActivityResult(reqCode, resultCode, data);
 
         switch (reqCode) {
-            case (1) :
+            case (1):
                 if (resultCode == Activity.RESULT_OK) {
+
+                    String phoneNumber = new PhoneContacts().GetPhoneNumberByData( data );
+                    Toast.makeText(getApplicationContext(), phoneNumber, Toast.LENGTH_SHORT).show();
+
+
                     Uri contactData = data.getData();
-                    Cursor c =  getContentResolver().query(contactData, null, null, null, null);
+                    Cursor c = getContentResolver().query(contactData, null, null, null, null);
+
                     if (c.moveToFirst()) {
+
                         String name = c.getString(c.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
-                        String phoneNumber = c.getString(c.getColumnIndex(ContactsContract.Contacts._ID));
+                        String hasPhoneNumber = c.getString(c.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER));
+                        String contactId = c.getString(c.getColumnIndex(ContactsContract.Contacts._ID));
+
+                        String phoneNumber = new PhoneContacts().GetPhoneNumber( contactId );
+
                         // TODO Whatever you want to do with the selected contact name.
                         Toast.makeText(getApplicationContext(), phoneNumber, Toast.LENGTH_SHORT).show();
+
                     }
+
                 }
                 break;
         }
-    }
+
+    }*/
 
     /**
      * Salida de la aplicación al pulsar el botón de salida del layout
+     *
      * @param view vista
      */
     public void exit_button(View view) {
