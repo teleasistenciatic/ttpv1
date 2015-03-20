@@ -10,8 +10,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.local.android.teleasistenciaticplus.R;
+import com.local.android.teleasistenciaticplus.lib.helper.AppLog;
 import com.local.android.teleasistenciaticplus.lib.networking.SmsDispatcher;
 import com.local.android.teleasistenciaticplus.lib.phone.PhoneContacts;
+
+import java.util.Map;
 
 
 /**
@@ -41,7 +44,10 @@ public class actDebugSMS extends Activity {
         new SmsDispatcher(phoneNumber, smsBodyText).send();
     }
 
-
+    /**
+     * Lanza la actividad para almacenar el contacto seleccionado
+     * @param view
+     */
     public void get_contact_from_contactlist(View view) {
 
         //Abrir la lista de contactos
@@ -51,21 +57,38 @@ public class actDebugSMS extends Activity {
 
     }
 
-
+    /**
+     * Función que recoge los datos del contacto seleccionado
+     * @param reqCode regcode
+     * @param resultCode resultCode
+     * @param data El data del intent
+     */
     @Override
     public void onActivityResult(int reqCode, int resultCode, Intent data) {
         super.onActivityResult(reqCode, resultCode, data);
+
+        Map contactDataMap = null;
 
         switch (reqCode) {
             case (1):
                 if (resultCode == Activity.RESULT_OK) {
 
-                    String phoneNumber = new PhoneContacts().GetPhoneNumberByData( data );
-                    // TODO Whatever you want to do with the selected contact name.
-                    Toast.makeText( getApplicationContext(), phoneNumber, Toast.LENGTH_SHORT).show();
+                    contactDataMap = new PhoneContacts(data).getPhoneContact();
+                    AppLog.i("Contactos",contactDataMap.toString());
+
                 }
                 break;
         }
+
+        /*
+        -Valores del Array asociativo-
+        contactMap.put("displayName", displayName);
+        contactMap.put("hasPhoneNumber", hasPhoneNumber);
+        contactMap.put("phoneNumber", phoneNumber);
+        contactMap.put("contactId", contactId);*/
+
+        TextView phoneNumberEdit = (TextView) findViewById(R.id.debug_edit_sms_number);
+        phoneNumberEdit.setText( contactDataMap.get("phoneNumber").toString() );
 
     }
 

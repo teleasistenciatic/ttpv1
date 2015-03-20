@@ -5,9 +5,11 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
-import android.widget.Toast;
 
 import com.local.android.teleasistenciaticplus.modelo.GlobalData;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by FESEJU on 20/03/2015.
@@ -16,33 +18,67 @@ import com.local.android.teleasistenciaticplus.modelo.GlobalData;
  */
 public class PhoneContacts {
 
+    private String displayName;
+    private String hasPhoneNumber;
+    private String phoneNumber;
+    private String contactId;
+
+    /**
+     *
+     * @param data
+     */
+    public PhoneContacts(Intent data) {
+
+        GetPhoneNumberByIntentData(data);
+
+    }
+
+    /**
+     * Devuelve los datos de un contacto
+     * @return Map con los datos que necesitamos del contacto
+     */
+    public Map getPhoneContact() {
+
+        Map<String, String> contactMap = new HashMap<>();
+        contactMap.put("displayName", displayName);
+        contactMap.put("hasPhoneNumber", hasPhoneNumber);
+        contactMap.put("phoneNumber", phoneNumber);
+        contactMap.put("contactId", contactId);
+
+        return contactMap;
+    }
+
+
     /**
      * Obtiene el numero de teléfono a partir de los datos obtenidos
      * de la llamada a un intent
      * @param data
      * @return number Número de teléfono
      */
-    public String GetPhoneNumberByData(Intent data)
+    private void GetPhoneNumberByIntentData(Intent data)
     {
-
+        //Contexto desde nuestro singleton
         Context context = GlobalData.getAppContext();
+
         Uri contactData = data.getData();
         Cursor c = context.getContentResolver().query(contactData, null, null, null, null);
 
-        String number = null;
         if (c.moveToFirst()) {
 
-            String name = c.getString(c.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
-            String hasPhoneNumber = c.getString(c.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER));
-            String contactId = c.getString(c.getColumnIndex(ContactsContract.Contacts._ID));
+            displayName = c.getString(c.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
+            hasPhoneNumber = c.getString(c.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER));
+            contactId = c.getString(c.getColumnIndex(ContactsContract.Contacts._ID));
 
-            number = new PhoneContacts().GetPhoneNumber( contactId );
+            phoneNumber = GetPhoneNumber( contactId );
         }
-
-        return number;
     }
 
-    public String GetPhoneNumber(String id)
+    /**
+     * Los datos de numero de teléfono no se encuentran en .Contacts si no en .Phone
+     * @param id
+     * @return cadena con el numero de teléfono
+     */
+    private String GetPhoneNumber(String id)
     {
         Context context = GlobalData.getAppContext();
         String number = "";
