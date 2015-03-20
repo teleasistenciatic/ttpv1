@@ -1,8 +1,8 @@
 package com.local.android.teleasistenciaticplus.act.debug;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,10 +12,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.local.android.teleasistenciaticplus.R;
-import com.local.android.teleasistenciaticplus.lib.networking.Networking;
 
 
-public class actMainDebug extends ActionBarActivity {
+
+public class actMainDebug extends Activity {
 
     /**
      * Creación de la actividad de depuración

@@ -1,6 +1,6 @@
 package com.local.android.teleasistenciaticplus.act.debug;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -15,7 +15,7 @@ import com.local.android.teleasistenciaticplus.modelo.Constants;
 /**
  * Actividad que comprueba la conexión de nuestra aplicación al servidor maestro
  */
-public class actDebugCheckServer extends ActionBarActivity {
+public class actDebugCheckServer extends Activity {
 
     /**
      * OnCreate principal

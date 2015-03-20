@@ -1,8 +1,8 @@
 package com.local.android.teleasistenciaticplus.act;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 
 import com.local.android.teleasistenciaticplus.act.offline.actMainOffline;
@@ -27,7 +27,7 @@ import java.util.TimerTask;
  * 2. El servidor de la aplicación está online
  * 3. El teléfono está registrado en la aplicación
  */
-public class actLoadingScreen extends ActionBarActivity implements Constants {
+public class actLoadingScreen extends Activity implements Constants {
 
 
     @Override

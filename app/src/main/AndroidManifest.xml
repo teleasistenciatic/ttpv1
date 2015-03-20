@@ -60,7 +60,7 @@
             android:label="@string/title_activity_act_main"
             android:logo="@drawable/ic_launcher"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light" >
+            android:theme="@style/AppTheme" >
         </activity>
 
         <!-- Actividad principal Modo Offline -->
@@ -70,7 +70,7 @@
             android:label="@string/title_activity_act_main_offline"
             android:logo="@drawable/ic_launcher"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light" >
+            android:theme="@style/AppTheme" >
         </activity>
 
         <!-- Actividad principal Debug -->

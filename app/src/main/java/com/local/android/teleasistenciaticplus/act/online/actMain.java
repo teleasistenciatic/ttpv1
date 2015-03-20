@@ -1,10 +1,10 @@
 package com.local.android.teleasistenciaticplus.act.online;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,7 +26,7 @@ import com.local.android.teleasistenciaticplus.modelo.DebugLevel;
  * - Sólo se accede a ella si no hay problemas de conexión e identificación del usuario.
  * - Se inicializan los elementos del UI y se comprueba si hay avisos activos
  */
-public class actMain extends ActionBarActivity implements Constants {
+public class actMain extends Activity implements Constants {
 
     //TAG para AppLog
     final static String TAG = "TELEASISTENCIA-actMain --> ";
@@ -39,7 +39,7 @@ public class actMain extends ActionBarActivity implements Constants {
         setContentView(R.layout.layout_main);
 
         //Personalizamos el ActionBar con icono y el nombre del usuario
-        //customizeActionBar();
+        customizeActionBar();
 
         //Comprobamos si hay un aviso activo
         Boolean retrieveAviso = false;
@@ -115,20 +115,12 @@ public class actMain extends ActionBarActivity implements Constants {
         //Obtenemos del servidor el nombre del usuario asociado a este número de teléfono
         String userName = ServerOperations.retrieveUserName();
 
-        //SDK API < 16
-        if (Build.VERSION.SDK_INT < 16) {
-            android.support.v7.app.ActionBar actionBar1 = getSupportActionBar();
-            actionBar1.setTitle(userName);
-            actionBar1.setIcon(R.drawable.ic_launcher);
-            actionBar1.setLogo(R.drawable.ic_launcher);
-
-        }else {
             //SDK API > 16
             ActionBar actionBar2 = getActionBar();
             actionBar2.setTitle(userName);
             actionBar2.setIcon(R.drawable.ic_launcher);
             actionBar2.setLogo(R.drawable.ic_launcher);
-        }
+
     }
 
 

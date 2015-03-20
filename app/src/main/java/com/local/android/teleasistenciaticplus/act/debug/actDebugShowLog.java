@@ -1,6 +1,6 @@
 package com.local.android.teleasistenciaticplus.act.debug;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -13,7 +13,7 @@ import static com.local.android.teleasistenciaticplus.lib.filesystem.FileOperati
 /**
  * Lectura del fichero LOG que se encuentra fisicamente en el dispositivo
  */
-public class actDebugShowLog extends ActionBarActivity implements Constants{
+public class actDebugShowLog extends Activity implements Constants{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

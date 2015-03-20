@@ -3,24 +3,19 @@ package com.local.android.teleasistenciaticplus.act.debug;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
-import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.local.android.teleasistenciaticplus.R;
 import com.local.android.teleasistenciaticplus.lib.networking.SmsDispatcher;
-import com.local.android.teleasistenciaticplus.lib.phone.PhoneContacts;
 
 
 /**
  * Actividad de DEBUG que enviará un SMS al numero de teléfono indicado
  */
-public class actDebugSMS extends ActionBarActivity {
+public class actDebugSMS extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

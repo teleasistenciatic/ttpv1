@@ -1,6 +1,6 @@
 package com.local.android.teleasistenciaticplus.act.debug;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.local.android.teleasistenciaticplus.R;
 import com.local.android.teleasistenciaticplus.lib.helper.AppInfo;
 
-public class actDebugMemory extends ActionBarActivity {
+public class actDebugMemory extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

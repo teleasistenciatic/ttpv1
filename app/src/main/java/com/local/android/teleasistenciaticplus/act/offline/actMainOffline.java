@@ -1,7 +1,7 @@
 package com.local.android.teleasistenciaticplus.act.offline;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,7 +11,7 @@ import com.local.android.teleasistenciaticplus.act.debug.actMainDebug;
 import com.local.android.teleasistenciaticplus.modelo.Constants;
 import com.local.android.teleasistenciaticplus.modelo.DebugLevel;
 
-public class actMainOffline extends ActionBarActivity {
+public class actMainOffline extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

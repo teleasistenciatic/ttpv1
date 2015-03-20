@@ -1,6 +1,6 @@
 package com.local.android.teleasistenciaticplus.act.debug;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.local.android.teleasistenciaticplus.R;
 import com.local.android.teleasistenciaticplus.lib.networking.Networking;
 
-public class actDebugDataConnection extends ActionBarActivity {
+public class actDebugDataConnection extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

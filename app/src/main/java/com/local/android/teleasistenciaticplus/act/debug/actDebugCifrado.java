@@ -1,11 +1,7 @@
 package com.local.android.teleasistenciaticplus.act.debug;
 
-import android.content.Context;
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
-import android.text.ClipboardManager;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,13 +9,12 @@ import android.widget.Toast;
 import com.local.android.teleasistenciaticplus.R;
 import com.local.android.teleasistenciaticplus.lib.cifrado.Cifrado;
 import com.local.android.teleasistenciaticplus.lib.helper.AppLog;
-import com.local.android.teleasistenciaticplus.modelo.GlobalData;
 
 /**
  * Depuración: cifrado descifrado
  */
 
-public class actDebugCifrado extends ActionBarActivity {
+public class actDebugCifrado extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +24,7 @@ public class actDebugCifrado extends ActionBarActivity {
 
     /**
      * Fin de la activity
+     *
      * @param view vista
      */
     public void exit_button(View view) {
@@ -37,6 +33,7 @@ public class actDebugCifrado extends ActionBarActivity {
 
     /**
      * Cifrado
+     *
      * @param view vista
      * @throws Exception
      */
@@ -65,6 +62,7 @@ public class actDebugCifrado extends ActionBarActivity {
 
     /**
      * Descifrado
+     *
      * @param view vista
      * @throws Exception
      */
