@@ -70,9 +70,15 @@
         <string name="check_user_account_retry">Reintentar</string>
 
     <!-- Actividad main offline -->
-        <string name="action_settings">Settings</string>
         <string name="title_activity_act_main_offline">Pantalla principal (offline)</string>
     <!-- Fin cadenas actMain offline -->
+
+    <!-- Actividad main offline -->
+        <string name="menu_user_options_exit">Salida</string>
+    <!-- Fin cadenas actMain offline -->
+
+    <!-- Opciones de usuario -->
+        <string name="menu_act_user_options">Configuración</string>
 
     <!-- Actividad main debug -->
         <string name="title_activity_act_main_debug">Pantalla de depuracion</string>
@@ -82,8 +88,10 @@
         <string name="title_activity_act_debug_data_connection">Debug > DataConnection</string>
         <string name="title_activity_act_debug_check_server">Debug > CheckServer</string>
         <string name="title_activity_act_debug_cifrado">Debug > Cifrado/Descifrado</string>
-    <string name="title_activity_act_debug_show_log">Debug > ShowLog</string>
-    <string name="title_activity_act_debug_sms">actDebugSMS</string>
+
+        <string name="title_activity_act_debug_show_log">Debug > ShowLog</string>
+        <string name="title_activity_act_debug_sms">actDebugSMS</string>
+        <string name="title_activity_act_user_options">actUserOptions</string>
     <!-- Fin cadenas actMain Debug -->
 
 </resources>

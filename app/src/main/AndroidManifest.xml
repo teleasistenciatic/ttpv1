@@ -26,10 +26,10 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <!-- LISTA DE CONTACTOS -->
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <!-- SMS -->
-    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <!-- Aplicacion -->
     <application
@@ -104,12 +104,18 @@
             android:label="@string/title_activity_act_debug_show_log"
             android:parentActivityName=".act.debug.actMainDebug" >
         </activity>
-        <!-- Fin actividades Depuración -->
-
         <activity
             android:name=".act.debug.actDebugSMS"
             android:label="@string/title_activity_act_debug_sms" >
         </activity>
+        <!-- Fin actividades Depuración -->
+
+        <!-- Actividad de opciones de usuario -->
+        <activity
+            android:name=".act.user.actUserOptions"
+            android:label="@string/title_activity_act_user_options" >
+        </activity>
+
     </application>
 
 </manifest>

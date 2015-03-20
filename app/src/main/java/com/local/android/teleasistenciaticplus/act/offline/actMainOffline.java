@@ -8,6 +8,7 @@ import android.view.MenuItem;
 
 import com.local.android.teleasistenciaticplus.R;
 import com.local.android.teleasistenciaticplus.act.debug.actMainDebug;
+import com.local.android.teleasistenciaticplus.act.user.actUserOptions;
 import com.local.android.teleasistenciaticplus.modelo.Constants;
 import com.local.android.teleasistenciaticplus.modelo.DebugLevel;
 
@@ -46,6 +47,9 @@ public class actMainOffline extends Activity {
             finish();
         } else if ( id == R.id.menu_actmainoffline_debug_screen ) {
             Intent intent = new Intent(this, actMainDebug.class);
+            startActivity(intent);
+        } else if ( id == R.id.menu_act_user_options ) {
+            Intent intent = new Intent(this, actUserOptions.class);
             startActivity(intent);
         }
 
