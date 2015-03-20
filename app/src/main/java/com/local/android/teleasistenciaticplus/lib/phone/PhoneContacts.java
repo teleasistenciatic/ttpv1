@@ -5,15 +5,23 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
+import android.widget.Toast;
 
 import com.local.android.teleasistenciaticplus.modelo.GlobalData;
 
 /**
  * Created by FESEJU on 20/03/2015.
+ * Clase que automatiza y abstrae el manejo de los datos de la
+ * libreta de direcciones.
  */
 public class PhoneContacts {
 
-    /*
+    /**
+     * Obtiene el numero de teléfono a partir de los datos obtenidos
+     * de la llamada a un intent
+     * @param data
+     * @return number Número de teléfono
+     */
     public String GetPhoneNumberByData(Intent data)
     {
 
@@ -21,22 +29,18 @@ public class PhoneContacts {
         Uri contactData = data.getData();
         Cursor c = context.getContentResolver().query(contactData, null, null, null, null);
 
+        String number = null;
         if (c.moveToFirst()) {
 
             String name = c.getString(c.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
             String hasPhoneNumber = c.getString(c.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER));
             String contactId = c.getString(c.getColumnIndex(ContactsContract.Contacts._ID));
 
-            String phoneNumber = new PhoneContacts().GetPhoneNumber( contactId );
-
-            // TODO Whatever you want to do with the selected contact name.
-            Toast.makeText(getApplicationContext(), phoneNumber, Toast.LENGTH_SHORT).show();
-
+            number = new PhoneContacts().GetPhoneNumber( contactId );
         }
 
-
         return number;
-    }*/
+    }
 
     public String GetPhoneNumber(String id)
     {

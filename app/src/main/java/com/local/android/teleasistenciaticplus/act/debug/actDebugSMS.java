@@ -7,9 +7,11 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.local.android.teleasistenciaticplus.R;
 import com.local.android.teleasistenciaticplus.lib.networking.SmsDispatcher;
+import com.local.android.teleasistenciaticplus.lib.phone.PhoneContacts;
 
 
 /**
@@ -49,7 +51,7 @@ public class actDebugSMS extends Activity {
 
     }
 
-/*
+
     @Override
     public void onActivityResult(int reqCode, int resultCode, Intent data) {
         super.onActivityResult(reqCode, resultCode, data);
@@ -59,30 +61,13 @@ public class actDebugSMS extends Activity {
                 if (resultCode == Activity.RESULT_OK) {
 
                     String phoneNumber = new PhoneContacts().GetPhoneNumberByData( data );
-                    Toast.makeText(getApplicationContext(), phoneNumber, Toast.LENGTH_SHORT).show();
-
-
-                    Uri contactData = data.getData();
-                    Cursor c = getContentResolver().query(contactData, null, null, null, null);
-
-                    if (c.moveToFirst()) {
-
-                        String name = c.getString(c.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
-                        String hasPhoneNumber = c.getString(c.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER));
-                        String contactId = c.getString(c.getColumnIndex(ContactsContract.Contacts._ID));
-
-                        String phoneNumber = new PhoneContacts().GetPhoneNumber( contactId );
-
-                        // TODO Whatever you want to do with the selected contact name.
-                        Toast.makeText(getApplicationContext(), phoneNumber, Toast.LENGTH_SHORT).show();
-
-                    }
-
+                    // TODO Whatever you want to do with the selected contact name.
+                    Toast.makeText( getApplicationContext(), phoneNumber, Toast.LENGTH_SHORT).show();
                 }
                 break;
         }
 
-    }*/
+    }
 
     /**
      * Salida de la aplicación al pulsar el botón de salida del layout
