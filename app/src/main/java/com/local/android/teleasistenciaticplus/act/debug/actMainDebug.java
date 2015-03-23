@@ -80,6 +80,8 @@ public class actMainDebug extends Activity {
                         case 1: //"Envio SMS"
                             actToLoad = actDebugSMS.class;
                             break;
+                        case 0: //"Configuración de usuario" / no hecho todavía
+                            return;
                     }
 
                     Intent newIntent;
