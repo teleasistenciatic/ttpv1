@@ -120,6 +120,10 @@
             android:name=".act.user.actUserOptionsDatosPersonales"
             android:label="@string/title_activity_act_user_options_datos_personales" >
         </activity>
+        <activity
+            android:name=".act.user.actUserOptionsPersonaContacto"
+            android:label="@string/title_activity_act_user_options_persona_contacto" >
+        </activity>
     </application>
 
 </manifest>

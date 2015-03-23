@@ -55,7 +55,7 @@ public class actUserOptions extends Activity {
                         actToLoad = actUserOptionsDatosPersonales.class;
                         break;
                     case 1: //"Personas de contacto"
-                        actToLoad = actUserOptionsDatosPersonales.class;
+                        actToLoad = actUserOptionsPersonaContacto.class;
                         break;
                 }
 

@@ -104,6 +104,8 @@
         <string name="title_activity_act_debug_sms">Debug > SMS</string>
         <string name="title_activity_act_user_options">Configuración usuario/a</string>
         <string name="title_activity_act_user_options_datos_personales">Configuración > Datos personales</string>
+        <string name="title_activity_act_user_options_persona_contacto">Configuración > Persona/s de Contacto</string>
+    <string name="action_settings">Settings</string>
 
     <!-- Fin cadenas actMain Debug -->
 
