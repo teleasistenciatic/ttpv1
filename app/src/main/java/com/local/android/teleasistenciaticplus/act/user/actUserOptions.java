@@ -28,8 +28,8 @@ public class actUserOptions extends Activity {
         final ListView listView = (ListView) findViewById(R.id.user_options_listView);
         /// String para el ListView
         String[] values = new String[]{
-                "Datos personales",// 0,
-                "Sonido" //id 1
+                "Datos personales", // 0,
+                "Personas de contacto" // 1
         };
 
         /// Creación del adaptador con su String
@@ -54,7 +54,7 @@ public class actUserOptions extends Activity {
                     case 0: //"Datos personales"
                         actToLoad = actUserOptionsDatosPersonales.class;
                         break;
-                    case 1: //"Sonido y volumen"
+                    case 1: //"Personas de contacto"
                         actToLoad = actUserOptionsDatosPersonales.class;
                         break;
                 }

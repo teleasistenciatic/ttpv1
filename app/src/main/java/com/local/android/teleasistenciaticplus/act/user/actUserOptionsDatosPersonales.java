@@ -1,6 +1,7 @@
 package com.local.android.teleasistenciaticplus.act.user;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -8,7 +9,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.local.android.teleasistenciaticplus.R;
+import com.local.android.teleasistenciaticplus.lib.helper.AlertDialogShow;
 import com.local.android.teleasistenciaticplus.lib.helper.AppSharedPreferences;
+import com.local.android.teleasistenciaticplus.modelo.GlobalData;
 
 public class actUserOptionsDatosPersonales extends Activity {
 
@@ -39,7 +42,17 @@ public class actUserOptionsDatosPersonales extends Activity {
         AppSharedPreferences userSharedPreferences = new AppSharedPreferences();
         userSharedPreferences.setUserData( textEditNombre.getText().toString() , textEditApellidos.getText().toString() );
 
+        /////////
+        //Feedback al usuario tras la actualización
+        /////////
+        AlertDialogShow popup_conn = new AlertDialogShow();
+        popup_conn.setTitulo(getResources().getString(R.string.user_options_datos_personales_edit));
 
+        popup_conn.setMessage(getResources().getString(R.string.user_options_datos_personales_correct_edit));
+
+        popup_conn.setLabelNeutral(getResources().getString(R.string.close_window));
+        popup_conn.show(getFragmentManager(), "dummyTAG");
+        //Fin del mensaje de información
 
     }
 

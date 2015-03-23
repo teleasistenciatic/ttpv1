@@ -88,6 +88,9 @@
     <!-- Opciones de usuario -->
         <string name="menu_act_user_options">Configuración</string>
 
+        <string name="user_options_datos_personales_edit">Datos Personales</string>
+        <string name="user_options_datos_personales_correct_edit">Modificación correcta</string>
+
     <!-- Actividad main debug -->
         <string name="title_activity_act_main_debug">Pantalla de depuracion</string>
         <string name="sms_button_text">Aviso a familiar</string>
