@@ -4,8 +4,11 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.local.android.teleasistenciaticplus.R;
+import com.local.android.teleasistenciaticplus.lib.helper.AppSharedPreferences;
 
 public class actUserOptionsDatosPersonales extends Activity {
 
@@ -13,8 +16,36 @@ public class actUserOptionsDatosPersonales extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_user_options_datos_personales);
+
+        //Leemos los valores por defecto que hay guardados en el SharedPreferences
+        String[] datosPersonales = new AppSharedPreferences().getUserData();
+
+        TextView textEditNombre = (TextView) findViewById(R.id.user_options_datos_personales_nombre_text);
+        TextView textEditApellidos = (TextView) findViewById(R.id.user_options_datos_personales_apellidos_text);
+
+        textEditNombre.setText(datosPersonales[0]);
+        textEditApellidos.setText(datosPersonales[1]);
     }
 
+    /**
+     * Se guardan los datos del usuario en las SharedPreferences
+     * @param view vista
+     */
+    public void user_options_datos_personales_edit(View view) {
+
+        TextView textEditNombre = (TextView) findViewById(R.id.user_options_datos_personales_nombre_text);
+        TextView textEditApellidos = (TextView) findViewById(R.id.user_options_datos_personales_apellidos_text);
+
+        AppSharedPreferences userSharedPreferences = new AppSharedPreferences();
+        userSharedPreferences.setUserData( textEditNombre.getText().toString() , textEditApellidos.getText().toString() );
+
+
+
+    }
+
+    public void user_options_datos_personales_exit(View view) {
+        finish();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

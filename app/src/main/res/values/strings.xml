@@ -42,6 +42,14 @@
 
     <!-- Fin cadenas actMain -->
 
+    <!-- Inicio Cademas Opciones de usuario -->
+
+        <string name="user_options_nombre">Nombre</string>
+        <string name="user_options_apellidos">Apellidos</string>
+
+    <!-- Fin cadenas opciones de usuario -->
+
+
     <!-- Mensajes de error -->
         <string name="ERROR">ERROR</string>
         <string name="CORRECTO">CORRECTO</string>
@@ -90,11 +98,10 @@
         <string name="title_activity_act_debug_cifrado">Debug > Cifrado/Descifrado</string>
 
         <string name="title_activity_act_debug_show_log">Debug > ShowLog</string>
-        <string name="title_activity_act_debug_sms">actDebugSMS</string>
-        <string name="title_activity_act_user_options">actUserOptions</string>
-    <string name="title_activity_act_user_options_datos_personales">actUserOptionsDatosPersonales
-    </string>
-    <string name="action_settings">Settings</string>
+        <string name="title_activity_act_debug_sms">Debug > SMS</string>
+        <string name="title_activity_act_user_options">Configuración usuario/a</string>
+        <string name="title_activity_act_user_options_datos_personales">Configuración > Datos personales</string>
+
     <!-- Fin cadenas actMain Debug -->
 
 </resources>
