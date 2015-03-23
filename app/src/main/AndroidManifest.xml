@@ -110,12 +110,16 @@
         </activity>
         <!-- Fin actividades Depuración -->
 
+
         <!-- Actividad de opciones de usuario -->
         <activity
             android:name=".act.user.actUserOptions"
             android:label="@string/title_activity_act_user_options" >
         </activity>
-
+        <activity
+            android:name=".act.user.actUserOptionsDatosPersonales"
+            android:label="@string/title_activity_act_user_options_datos_personales" >
+        </activity>
     </application>
 
 </manifest>

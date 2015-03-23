@@ -1,9 +1,14 @@
 package com.local.android.teleasistenciaticplus.act.user;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.local.android.teleasistenciaticplus.R;
 
@@ -12,7 +17,58 @@ public class actUserOptions extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        /////////////////////////////////////////////////////////////////////
+        // Creación del UI de ListView con los subapartados de Opciones de usuario
+        ////////////////////////////////////////////////////////////////////
+
+        /// Layout
         setContentView(R.layout.layout_user_options_main);
+        /// Listview
+        final ListView listView = (ListView) findViewById(R.id.user_options_listView);
+        /// String para el ListView
+        String[] values = new String[]{
+                "Datos personales",// 0,
+                "Sonido" //id 1
+        };
+
+        /// Creación del adaptador con su String
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_1, android.R.id.text1, values);
+        /// Vinculación del adaptador con la lista
+        listView.setAdapter(adapter);
+
+        /// Creación del OnClickListener para las pulsaciones
+        ////////////////////////////////////////////////////////////////////
+
+        // ListView Item Click Listener
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+
+                Class actToLoad = null;
+
+                switch (position) {
+                    case 0: //"Datos personales"
+                        actToLoad = actUserOptionsDatosPersonales.class;
+                        break;
+                    case 1: //"Sonido y volumen"
+                        actToLoad = actUserOptionsDatosPersonales.class;
+                        break;
+                }
+
+                Intent newIntent;
+                newIntent = new Intent().setClass(actUserOptions.this, actToLoad);
+                startActivity(newIntent);
+            }
+
+        });
+
+        /// Fin creación listView
+        ////////////////////////////////////////////////////////////////////
+
     }
 
 

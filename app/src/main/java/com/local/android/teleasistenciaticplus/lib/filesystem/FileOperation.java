@@ -112,6 +112,7 @@ public class FileOperation implements Constants {
             br.close();
         } catch (IOException e) {
             //You'll need to add proper error handling here
+            // TODO Excepciones en la lectura de archivos
         }
 
         return text.toString();
@@ -121,9 +122,10 @@ public class FileOperation implements Constants {
      * Lectura del fichero por defecto de LOG de sistema que se encuentra en CONSTANTS.
      * @return
      */
+    /*
     public static String fileLogRead() {
 
       return ( fileRead( Constants.DEBUG_LOG_FILE )) ;
 
-    }
+    }*/
 }

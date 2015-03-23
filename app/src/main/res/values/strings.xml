@@ -92,6 +92,9 @@
         <string name="title_activity_act_debug_show_log">Debug > ShowLog</string>
         <string name="title_activity_act_debug_sms">actDebugSMS</string>
         <string name="title_activity_act_user_options">actUserOptions</string>
+    <string name="title_activity_act_user_options_datos_personales">actUserOptionsDatosPersonales
+    </string>
+    <string name="action_settings">Settings</string>
     <!-- Fin cadenas actMain Debug -->
 
 </resources>
