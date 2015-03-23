@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
 
+import com.local.android.teleasistenciaticplus.lib.helper.AppLog;
 import com.local.android.teleasistenciaticplus.modelo.GlobalData;
 
 import java.util.HashMap;
@@ -69,7 +70,9 @@ public class PhoneContacts {
             hasPhoneNumber = c.getString(c.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER));
             contactId = c.getString(c.getColumnIndex(ContactsContract.Contacts._ID));
 
+            //Cursor cPhone = context.getContentResolver().query(contactData, null, null, null, null);
             phoneNumber = GetPhoneNumber( contactId );
+
         }
     }
 
@@ -82,15 +85,30 @@ public class PhoneContacts {
     {
         Context context = GlobalData.getAppContext();
         String number = "";
-        Cursor phones = context.getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, ContactsContract.CommonDataKinds.Phone._ID + " = " + id, null, null);
+
+        //Cursor phones = context.getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null,
+        //                                                   ContactsContract.CommonDataKinds.Phone._ID + " = " + id, null, null);
+
+        Cursor phones = context.getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+                new String[]{ContactsContract.CommonDataKinds.Phone.NUMBER},
+
+                ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = ? AND " +
+                        ContactsContract.CommonDataKinds.Phone.TYPE + " = " +
+                        ContactsContract.CommonDataKinds.Phone.TYPE_MOBILE,
+
+                new String[]{id},
+                null);
+
+        //AppLog.d("Telefonos: " + phones.getCount() + "ID :" + id );
 
         if(phones.getCount() > 0)
         {
             while(phones.moveToNext())
             {
                 number = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+                //AppLog.d("Buscando teléfono:" + number);
             }
-            System.out.println(number);
+
         }
 
         phones.close();

@@ -1,16 +1,70 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.local.android.teleasistenciaticplus.act.user.actUserOptionsPersonaContacto">
 
     <TextView
-        android:text="@string/hello_world"
+        android:id="@+id/user_options_persona_contacto_label"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/user_options_persona_contacto_label">
 
-</RelativeLayout>
+    </TextView>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+
+    <EditText
+        android:id="@+id/user_options_persona_contacto_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Persona 1"
+        android:textSize="20sp"
+        android:editable="false"
+        android:focusable="false"
+        android:layout_marginTop="20dp"
+        android:onClick="user_options_persona_contacto_text_click_1">
+    </EditText>
+
+    <EditText
+        android:id="@+id/user_options_persona_contacto_text_1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Persona 2"
+        android:editable="false"
+        android:focusable="false"
+        android:textSize="20sp"
+        android:onClick="user_options_persona_contacto_text_click_2">
+    </EditText>
+
+    <EditText
+        android:id="@+id/user_options_persona_contacto_text_2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Persona 3"
+        android:editable="false"
+        android:focusable="false"
+        android:textSize="20sp"
+        android:onClick="user_options_persona_contacto_text_click_3">
+    </EditText>
+
+
+    <!--
+    <Button
+        android:id="@+id/user_options_persona_contacto_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:onClick="user_options_persona_contacto_edit_button"
+        android:text="Guardar" /> -->
+
+</LinearLayout>

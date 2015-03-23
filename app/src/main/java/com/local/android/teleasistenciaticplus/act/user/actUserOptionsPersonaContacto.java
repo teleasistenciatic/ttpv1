@@ -1,11 +1,19 @@
 package com.local.android.teleasistenciaticplus.act.user;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.local.android.teleasistenciaticplus.R;
+import com.local.android.teleasistenciaticplus.lib.helper.AppLog;
+import com.local.android.teleasistenciaticplus.lib.phone.PhoneContacts;
+
+import java.util.Map;
 
 public class actUserOptionsPersonaContacto extends Activity {
 
@@ -38,4 +46,100 @@ public class actUserOptionsPersonaContacto extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    /**
+     * Selección del contacto principal
+     * @param view
+     */
+    public void user_options_persona_contacto_text_click_1(View view) {
+
+        //Abrir la lista de contactos
+        Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+        startActivityForResult(intent, 0);
+
+    }
+
+    /**
+     * Selección del contacto 2
+     * @param view
+     */
+    public void user_options_persona_contacto_text_click_2(View view) {
+        //Abrir la lista de contactos
+        Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+        startActivityForResult(intent, 1);
+    }
+
+    /**
+     * Selección del contacto 3
+     * @param view
+     */
+    public void user_options_persona_contacto_text_click_3(View view) {
+        //Abrir la lista de contactos
+        Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+        startActivityForResult(intent, 2);
+    }
+
+    /**
+     * Lanza la actividad para almacenar el contacto seleccionado
+     * @param view
+     */
+
+
+    /**
+     * Función que recoge los datos del contacto seleccionado
+     * @param reqCode regcode
+     * @param resultCode resultCode
+     * @param data El data del intent
+     */
+    @Override
+    public void onActivityResult(int reqCode, int resultCode, Intent data) {
+        super.onActivityResult(reqCode, resultCode, data);
+
+        Map contactDataMap = null;
+
+        switch (reqCode) {
+
+            case (0):
+                if (resultCode == Activity.RESULT_OK) {
+
+                    contactDataMap = new PhoneContacts(data).getPhoneContact();
+                    TextView textedit = (TextView) findViewById(R.id.user_options_persona_contacto_text);
+                    textedit.setText( contactDataMap.get("phoneNumber").toString() );
+                    AppLog.i("Contactos", contactDataMap.toString() );
+                }
+                break;
+
+            case (1):
+                if (resultCode == Activity.RESULT_OK) {
+
+                    contactDataMap = new PhoneContacts(data).getPhoneContact();
+                    TextView textedit = (TextView) findViewById(R.id.user_options_persona_contacto_text_1);
+                    textedit.setText( contactDataMap.get("phoneNumber").toString() );
+                    AppLog.i("Contactos", contactDataMap.toString() );
+
+                }
+                break;
+
+            case (2):
+                if (resultCode == Activity.RESULT_OK) {
+
+                    contactDataMap = new PhoneContacts(data).getPhoneContact();
+                    TextView textedit = (TextView) findViewById(R.id.user_options_persona_contacto_text_2);
+                    textedit.setText( contactDataMap.get("phoneNumber").toString() );
+                    AppLog.i("Contactos", contactDataMap.toString() );
+
+                }
+                break;
+        }
+
+        /*
+        -Valores del Array asociativo-
+        contactMap.put("displayName", displayName);
+        contactMap.put("hasPhoneNumber", hasPhoneNumber);
+        contactMap.put("phoneNumber", phoneNumber);
+        contactMap.put("contactId", contactId);*/
+
+
+    }
+
 }
