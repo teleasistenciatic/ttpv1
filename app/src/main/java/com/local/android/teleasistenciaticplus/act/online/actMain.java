@@ -3,7 +3,6 @@ package com.local.android.teleasistenciaticplus.act.online;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -207,7 +206,7 @@ public class actMain extends Activity implements Constants {
             //tfmRedButton.setActivated(false);
             tfmRedButton.setEnabled(false);
             //tfmRedButton.setPressed(true);
-            tfmRedButton.setBackgroundResource(R.drawable.customized_button300_pressed);
+            tfmRedButton.setBackgroundResource(R.drawable.grey_button200);
 
             TextView tvBtnLabel;
             tvBtnLabel = (TextView) findViewById(R.id.btnLabel);
@@ -225,7 +224,7 @@ public class actMain extends Activity implements Constants {
             tfmRedButton = (ImageButton) findViewById(R.id.tfmButton);
             tfmRedButton.setEnabled(true);
 
-            tfmRedButton.setBackgroundResource(R.drawable.customized_button300);
+            tfmRedButton.setBackgroundResource(R.drawable.red_button200);
 
             TextView tvBtnLabel;
             tvBtnLabel = (TextView) findViewById(R.id.btnLabel);
