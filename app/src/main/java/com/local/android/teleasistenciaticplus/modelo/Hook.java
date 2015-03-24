@@ -1,7 +1,10 @@
 package com.local.android.teleasistenciaticplus.modelo;
 
 import android.app.Application;
+import android.content.Context;
+import android.content.SharedPreferences;
 
+import com.local.android.teleasistenciaticplus.R;
 import com.local.android.teleasistenciaticplus.lib.filesystem.FileOperation;
 import com.local.android.teleasistenciaticplus.lib.phone.PhoneData;
 import com.local.android.teleasistenciaticplus.lib.helper.AppLog;

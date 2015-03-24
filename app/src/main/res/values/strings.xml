@@ -42,6 +42,14 @@
 
     <!-- Fin cadenas actMain -->
 
+    <!-- Inicio Cademas Opciones de usuario -->
+
+        <string name="user_options_nombre">Nombre</string>
+        <string name="user_options_apellidos">Apellidos</string>
+
+    <!-- Fin cadenas opciones de usuario -->
+
+
     <!-- Mensajes de error -->
         <string name="ERROR">ERROR</string>
         <string name="CORRECTO">CORRECTO</string>
@@ -70,9 +78,20 @@
         <string name="check_user_account_retry">Reintentar</string>
 
     <!-- Actividad main offline -->
-        <string name="action_settings">Settings</string>
         <string name="title_activity_act_main_offline">Pantalla principal (offline)</string>
     <!-- Fin cadenas actMain offline -->
+
+    <!-- Actividad main offline -->
+        <string name="menu_user_options_exit">Salida</string>
+    <!-- Fin cadenas actMain offline -->
+
+    <!-- Opciones de usuario -->
+        <string name="menu_act_user_options">Configuración</string>
+
+        <string name="user_options_datos_personales_edit">Datos Personales</string>
+        <string name="user_options_datos_personales_correct_edit">Modificación correcta</string>
+
+        <string name="user_options_persona_contacto_label">Persona de contacto (pulse para cambiar)</string>
 
     <!-- Actividad main debug -->
         <string name="title_activity_act_main_debug">Pantalla de depuracion</string>
@@ -82,8 +101,15 @@
         <string name="title_activity_act_debug_data_connection">Debug > DataConnection</string>
         <string name="title_activity_act_debug_check_server">Debug > CheckServer</string>
         <string name="title_activity_act_debug_cifrado">Debug > Cifrado/Descifrado</string>
-    <string name="title_activity_act_debug_show_log">Debug > ShowLog</string>
-    <string name="title_activity_act_debug_sms">actDebugSMS</string>
+
+        <string name="title_activity_act_debug_show_log">Debug > ShowLog</string>
+        <string name="title_activity_act_debug_sms">Debug > SMS</string>
+        <string name="title_activity_act_user_options">Configuración usuario/a</string>
+        <string name="title_activity_act_user_options_datos_personales">Configuración > Datos personales</string>
+        <string name="title_activity_act_user_options_persona_contacto">Configuración > Persona/s de Contacto</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_act_user_register">actUserRegister</string>
+
     <!-- Fin cadenas actMain Debug -->
 
 </resources>

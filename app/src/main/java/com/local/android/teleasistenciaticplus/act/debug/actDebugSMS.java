@@ -7,9 +7,14 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.local.android.teleasistenciaticplus.R;
+import com.local.android.teleasistenciaticplus.lib.helper.AppLog;
 import com.local.android.teleasistenciaticplus.lib.networking.SmsDispatcher;
+import com.local.android.teleasistenciaticplus.lib.phone.PhoneContacts;
+
+import java.util.Map;
 
 
 /**
@@ -39,7 +44,10 @@ public class actDebugSMS extends Activity {
         new SmsDispatcher(phoneNumber, smsBodyText).send();
     }
 
-
+    /**
+     * Lanza la actividad para almacenar el contacto seleccionado
+     * @param view
+     */
     public void get_contact_from_contactlist(View view) {
 
         //Abrir la lista de contactos
@@ -49,40 +57,40 @@ public class actDebugSMS extends Activity {
 
     }
 
-/*
+    /**
+     * Función que recoge los datos del contacto seleccionado
+     * @param reqCode regcode
+     * @param resultCode resultCode
+     * @param data El data del intent
+     */
     @Override
     public void onActivityResult(int reqCode, int resultCode, Intent data) {
         super.onActivityResult(reqCode, resultCode, data);
+
+        Map contactDataMap = null;
 
         switch (reqCode) {
             case (1):
                 if (resultCode == Activity.RESULT_OK) {
 
-                    String phoneNumber = new PhoneContacts().GetPhoneNumberByData( data );
-                    Toast.makeText(getApplicationContext(), phoneNumber, Toast.LENGTH_SHORT).show();
-
-
-                    Uri contactData = data.getData();
-                    Cursor c = getContentResolver().query(contactData, null, null, null, null);
-
-                    if (c.moveToFirst()) {
-
-                        String name = c.getString(c.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
-                        String hasPhoneNumber = c.getString(c.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER));
-                        String contactId = c.getString(c.getColumnIndex(ContactsContract.Contacts._ID));
-
-                        String phoneNumber = new PhoneContacts().GetPhoneNumber( contactId );
-
-                        // TODO Whatever you want to do with the selected contact name.
-                        Toast.makeText(getApplicationContext(), phoneNumber, Toast.LENGTH_SHORT).show();
-
-                    }
+                    contactDataMap = new PhoneContacts(data).getPhoneContact();
+                    AppLog.i("Contactos",contactDataMap.toString());
 
                 }
                 break;
         }
 
-    }*/
+        /*
+        -Valores del Array asociativo-
+        contactMap.put("displayName", displayName);
+        contactMap.put("hasPhoneNumber", hasPhoneNumber);
+        contactMap.put("phoneNumber", phoneNumber);
+        contactMap.put("contactId", contactId);*/
+
+        TextView phoneNumberEdit = (TextView) findViewById(R.id.debug_edit_sms_number);
+        phoneNumberEdit.setText( contactDataMap.get("phoneNumber").toString() );
+
+    }
 
     /**
      * Salida de la aplicación al pulsar el botón de salida del layout

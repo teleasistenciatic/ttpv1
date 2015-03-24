@@ -52,6 +52,13 @@ public interface Constants {
     ////////////////////////////////////////////////
     // OPERACIONES HTTP
     ////////////////////////////////////////////////
-    public static final int HTTP_OPERATION_DELAY = 1000;
+
+        public static final int HTTP_OPERATION_DELAY = 1000;
+
+    ////////////////////////////////////////////////
+    // FICHERO DE SHAREDPREFERENCES
+    ////////////////////////////////////////////////
+
+        public static final String APP_SHARED_PREFERENCES_FILE = "teleasistencia.prefs";
 
 }

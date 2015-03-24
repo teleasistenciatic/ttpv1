@@ -2,10 +2,12 @@ package com.local.android.teleasistenciaticplus.lib.helper;
 
 import android.app.AlertDialog;
 import android.app.DialogFragment;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 
 import com.local.android.teleasistenciaticplus.R;
+import com.local.android.teleasistenciaticplus.modelo.GlobalData;
 
 /**
  * Created by GAMO1J on 25/02/2015.

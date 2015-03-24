@@ -120,9 +120,7 @@ public class actMain extends Activity implements Constants {
             actionBar2.setTitle(userName);
             actionBar2.setIcon(R.drawable.ic_launcher);
             actionBar2.setLogo(R.drawable.ic_launcher);
-
     }
-
 
     /**
      * Implementación de la pulsación del botón rojo para generar un Aviso
