@@ -41,15 +41,24 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2">
+            android:layout_weight="2"
+            android:gravity="center_vertical|center_horizontal">
 
-            <Button
-                android:id="@+id/smsButton"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="@string/sms_button_text"
-                android:layout_gravity="center|bottom"
-                android:background="#ffeb1313" />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tfmButton"
+                style="?android:attr/borderlessButtonStyle"
+                android:background="@drawable/boton_rojo_states"
+
+                android:clickable="false"
+                android:layout_below="@+id/titulo"
+                android:layout_centerHorizontal="true"
+                android:cropToPadding="false"
+                android:longClickable="false"
+                android:adjustViewBounds="true" />
+                <!--android:onClick="sms_send_button"-->
+
         </LinearLayout>
 
         <LinearLayout

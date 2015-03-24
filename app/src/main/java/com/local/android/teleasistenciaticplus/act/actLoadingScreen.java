@@ -1,17 +1,13 @@
 package com.local.android.teleasistenciaticplus.act;
 
 import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 
+import com.local.android.teleasistenciaticplus.R;
 import com.local.android.teleasistenciaticplus.act.offline.actMainOffline;
 import com.local.android.teleasistenciaticplus.act.online.actMain;
-
-import com.local.android.teleasistenciaticplus.R;
 import com.local.android.teleasistenciaticplus.lib.networking.Networking;
 import com.local.android.teleasistenciaticplus.lib.networking.ServerOperations;
 import com.local.android.teleasistenciaticplus.modelo.Constants;
@@ -89,7 +85,10 @@ public class actLoadingScreen extends Activity implements Constants {
                 Intent mainIntent;
                 mainIntent = new Intent().setClass(actLoadingScreen.this, actToLoad);
                 startActivity(mainIntent);
-                overridePendingTransition(R.animator.animation1, R.animator.animation2);
+
+                if(Constants.SHOW_ANIMATION == true) {
+                    overridePendingTransition(R.animator.animation2, R.animator.animation1);
+                }
                 // Cerramos la ventana de carga para que salga del BackStack
                 finish();
             }
