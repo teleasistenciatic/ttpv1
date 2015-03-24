@@ -20,6 +20,10 @@ public class AppSharedPreferences implements Constants {
         editor.commit();
     }
 
+    /**
+     * Recupera los datos de nombre y apellidos en el modo offline
+     * @return String[0] Nombre String[1] Apellidos
+     */
     public String[] getUserData() {
 
         SharedPreferences prefs = GlobalData.getAppContext().getSharedPreferences( APP_SHARED_PREFERENCES_FILE , Context.MODE_PRIVATE);
@@ -31,6 +35,9 @@ public class AppSharedPreferences implements Constants {
         return datosPersonalesUsuario;
     }
 
+    /**
+     * Función para almacenar en el shared preferences los datos de personas de contacto
+     */
     public void setPersonasContacto (String nombre1, String telefono1, String nombre2, String telefono2, String nombre3, String telefono3) {
         SharedPreferences.Editor editor = GlobalData.getAppContext().getSharedPreferences( APP_SHARED_PREFERENCES_FILE , Context.MODE_PRIVATE ).edit();
 
@@ -45,6 +52,11 @@ public class AppSharedPreferences implements Constants {
 
         editor.commit();
     }
+
+    /**
+     * Devuelve un array con los teléfonos de contacto
+     * @return
+     */
 
     public String[] getPersonasContacto() {
 

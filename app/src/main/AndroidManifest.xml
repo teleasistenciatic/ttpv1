@@ -124,6 +124,10 @@
             android:name=".act.user.actUserOptionsPersonaContacto"
             android:label="@string/title_activity_act_user_options_persona_contacto" >
         </activity>
+        <activity
+            android:name=".act.user.actUserRegister"
+            android:label="@string/title_activity_act_user_register" >
+        </activity>
     </application>
 
 </manifest>

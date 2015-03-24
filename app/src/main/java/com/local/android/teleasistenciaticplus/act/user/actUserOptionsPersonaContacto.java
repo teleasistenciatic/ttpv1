@@ -131,8 +131,10 @@ public class actUserOptionsPersonaContacto extends Activity {
 
         TextView textedit = (TextView) findViewById(R.id.user_options_persona_contacto_text);
         TextView texteditName = (TextView) findViewById(R.id.user_options_persona_contacto_name_text);
+
         TextView textedit1 = (TextView) findViewById(R.id.user_options_persona_contacto_text_1);
         TextView texteditName1 = (TextView) findViewById(R.id.user_options_persona_contacto_name_text_1);
+
         TextView textedit2 = (TextView) findViewById(R.id.user_options_persona_contacto_text_2);
         TextView texteditName2 = (TextView) findViewById(R.id.user_options_persona_contacto_name_text_2);
 
