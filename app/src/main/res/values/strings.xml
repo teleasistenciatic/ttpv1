@@ -107,8 +107,12 @@
         <string name="title_activity_act_user_options">Configuración usuario/a</string>
         <string name="title_activity_act_user_options_datos_personales">Configuración > Datos personales</string>
         <string name="title_activity_act_user_options_persona_contacto">Configuración > Persona/s de Contacto</string>
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_act_user_register">actUserRegister</string>
+
+        <string name="title_activity_act_user_register">actUserRegister</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+        <string name="hello_blank_fragment">Hello blank fragment</string>
+        <string name="user_register_porfavor_label">Por favor, introduzca sus datos personales</string>
 
     <!-- Fin cadenas actMain Debug -->
 

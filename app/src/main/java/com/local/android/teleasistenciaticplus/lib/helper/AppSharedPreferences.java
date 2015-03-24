@@ -36,6 +36,36 @@ public class AppSharedPreferences implements Constants {
     }
 
     /**
+     * ¿Tiene datos personales?
+     * @return boolean tiene datos personales
+     */
+    public boolean hasUserData() {
+
+        SharedPreferences prefs = GlobalData.getAppContext().getSharedPreferences( APP_SHARED_PREFERENCES_FILE , Context.MODE_PRIVATE);
+        String nombre = prefs.getString("nombre", "");
+        String apellidos = prefs.getString("apellidos", "");
+
+        if ( ( nombre.length() > 0) && (apellidos.length() > 0) ) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    /**
+     * Borrar datos personales
+     */
+    public void deleteUserData() {
+
+        SharedPreferences.Editor editor = GlobalData.getAppContext().getSharedPreferences( APP_SHARED_PREFERENCES_FILE , Context.MODE_PRIVATE ).edit();
+        editor.putString("nombre", "");
+        editor.putString("apellidos", "");
+        editor.commit();
+
+    }
+
+    /**
      * Función para almacenar en el shared preferences los datos de personas de contacto
      */
     public void setPersonasContacto (String nombre1, String telefono1, String nombre2, String telefono2, String nombre3, String telefono3) {
