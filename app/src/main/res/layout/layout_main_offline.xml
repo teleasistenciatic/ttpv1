@@ -18,36 +18,44 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#ff33b5e5"></LinearLayout>
+            android:background="#ff0288d1"></LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#fff7901e"></LinearLayout>
+            android:background="#ffFFF59D"></LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#ffe3e9e3"></LinearLayout>
+            android:background="#ff607D8B"></LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2">
+        android:layout_weight="2"
+        android:background="#ffffffff"
+        android:gravity="center_vertical|center_horizontal">
 
-        <Button
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/smsButton"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/sms_button_text"
-            android:layout_gravity="center|bottom"
-            android:background="#ffeb1313" />
+            style="?android:attr/borderlessButtonStyle"
+            android:background="@drawable/boton_rojo_states"
+            android:onClick="sms_send"
+            android:clickable="false"
+            android:layout_below="@+id/titulo"
+            android:layout_centerHorizontal="true"
+            android:cropToPadding="false"
+            android:longClickable="false"
+            android:adjustViewBounds="true" />
     </LinearLayout>
 
     <LinearLayout
@@ -61,21 +69,21 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#ffa466aa"></LinearLayout>
+            android:background="#ff673AB7"></LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#ff8bc53f"></LinearLayout>
+            android:background="#ff43A047"></LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#ffa6aca9">
+            android:background="#ffE64A19">
 
             <TextView android:text="Modo offline"
                 android:layout_width="match_parent"
