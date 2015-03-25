@@ -9,7 +9,7 @@ import java.util.Date;
  */
 public class AppTime {
 
-    String dateFormat = "yyyyMMdd_HHmmss";
+    String dateFormat = "dd/MM/yyyy HH:mm:ss";
 
     public AppTime(String dateFormat) {
         this.dateFormat = dateFormat;
