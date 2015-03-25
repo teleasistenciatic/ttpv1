@@ -120,6 +120,8 @@
     <!--Comprobación de registro de usuario -->
         <string name="user_register_no_phone_contacs">Se necesitan personas de contacto para poder envíar el aviso.</string>
         <string name="user_register_no_phone_contacs_title">No hay personas de contacto</string>
+    <string name="title_activity_act_debug_user_config">actDebugUserConfig</string>
+    <string name="action_settings">Settings</string>
     <!-- Fin cadenas registro de usuario -->
 
 </resources>

@@ -18,6 +18,7 @@ public class AppSMS {
         // Andres García comunica que se encuentra bien a las 12:00 del día 12/03/2015
 
         // Obtenemos el nombre de usuario
+
         // la fecha
         // creamos el mensaje
     }
