@@ -10,10 +10,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.local.android.teleasistenciaticplus.R;
 import com.local.android.teleasistenciaticplus.act.debug.actMainDebug;
 import com.local.android.teleasistenciaticplus.act.user.actUserOptions;
+import com.local.android.teleasistenciaticplus.act.user.actUserOptionsPersonaContacto;
 import com.local.android.teleasistenciaticplus.fragment.fragUserRegister;
 import com.local.android.teleasistenciaticplus.lib.helper.AlertDialogShow;
 import com.local.android.teleasistenciaticplus.lib.helper.AppSharedPreferences;
@@ -160,9 +162,37 @@ public class actMainOffline extends Activity implements fragUserRegister.OnFragm
         Boolean hayPersonasContactoConTelefono = new AppSharedPreferences().hasPersonasContacto();
 
         if ( !hayPersonasContactoConTelefono ) {
-            //Se abre el menú de personas de contacto
-            configuration_action_button(view);
+
+            /*
+            /////////
+            //Genera una alerta en caso de que no tengamos asignados los contactos
+            /////////
+            AlertDialogShow popup_conn = new AlertDialogShow();
+
+            popup_conn.setTitulo(getResources().getString(R.string.user_register_no_phone_contacs_title));
+            popup_conn.setMessage(getResources().getString(R.string.user_register_no_phone_contacs));
+            popup_conn.setLabelNeutral(getResources().getString(R.string.close_window));
+            popup_conn.show(getFragmentManager(), "dummyTAG");
+
+            //Se abre el menú de personas de contacto*/
+            //TODO solucionar la llamada del dialog para que solo responda al botón cerrar
+
+            Toast.makeText(getBaseContext(), getResources().getString(R.string.user_register_no_phone_contacs) , Toast.LENGTH_LONG).show();
+
+            Intent intent = new Intent(this, actUserOptionsPersonaContacto.class);
+
+            startActivity(intent);
+
+            if( Constants.SHOW_ANIMATION ) {
+
+                overridePendingTransition(R.animator.animation2, R.animator.animation1);
+
+            }
+
         }
+
+        //Operación de envio de SMS
+
 
     }
 
@@ -180,22 +210,20 @@ public class actMainOffline extends Activity implements fragUserRegister.OnFragm
 
         if ( !hayPersonasContactoConTelefono ) {
 
+            Toast.makeText(getBaseContext(), getResources().getString(R.string.user_register_no_phone_contacs) , Toast.LENGTH_LONG).show();
 
-            /////////
-            //Genera una alerta en caso de que no tengamos asignados los contactos
-            /////////
-            AlertDialogShow popup_conn = new AlertDialogShow();
-            popup_conn.setTitulo(getResources().getString(R.string.check_server_conn_title));
+            Intent intent = new Intent(this, actUserOptionsPersonaContacto.class);
 
-            popup_conn.setMessage(getResources().getString(R.string.check_server_conn_error));
+            startActivity(intent);
 
-            popup_conn.setLabelNeutral(getResources().getString(R.string.close_window));
-            popup_conn.show(getFragmentManager(), "dummyTAG");
-            //Fin del mensaje de alerta
+            if( Constants.SHOW_ANIMATION ) {
 
-            //Se abre el menú de personas de contacto
-            configuration_action_button(view);
+                overridePendingTransition(R.animator.animation2, R.animator.animation1);
+
+            }
         }
+
+        //Operación de envío de SMS
 
     }
 }
