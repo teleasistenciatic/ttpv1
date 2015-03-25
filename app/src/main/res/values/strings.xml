@@ -115,10 +115,13 @@
             <string name="user_register_porfavor_label">Por favor, introduzca sus datos personales</string>
         <!-- Fin cadenas registro de usuario -->
 
-        <!--Comprobación de registro de usuario -->
+        <!-- Relacionados con personas de contacto -->
             <string name="user_register_no_phone_contacs">Se necesitan personas de contacto para poder envíar el aviso.</string>
             <string name="user_register_no_phone_contacs_title">No hay personas de contacto</string>
+        <!-- Fin cadenas personas de contacto -->
 
-    <!-- Fin cadenas registro de usuario -->
+        <!-- Relacionadas SMS -->
+            <string name="user_sms_sent">Enviado</string>
+        <!-- fin Relacionadas SMS -->
 
 </resources>
