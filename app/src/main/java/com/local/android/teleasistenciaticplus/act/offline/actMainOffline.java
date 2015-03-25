@@ -3,7 +3,6 @@ package com.local.android.teleasistenciaticplus.act.offline;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -124,4 +123,28 @@ public class actMainOffline extends Activity implements fragUserRegister.OnFragm
                 .commit();
     }
 
+
+    /////////////////////////////////////////////////////////////
+    // Métodos asociados a los botones de la UI
+    /////////////////////////////////////////////////////////////
+
+    /**
+     * Botón de Configuración
+     * Da acceso a la configuración de parámetros personales
+     * @param
+     *
+     */
+    public void configuration_action_button(View view) {
+
+        Intent intent = new Intent(this, actUserOptions.class);
+
+        startActivity(intent);
+
+        if( Constants.SHOW_ANIMATION ) {
+
+            overridePendingTransition(R.animator.animation2, R.animator.animation1);
+
+        }
+
+    }
 }
