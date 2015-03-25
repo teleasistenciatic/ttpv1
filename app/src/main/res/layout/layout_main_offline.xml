@@ -4,142 +4,146 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.local.android.teleasistenciaticplus.act.offline.actMainOffline"
+        android:background="@color/azulmagtel"
         android:orientation="vertical"
-        android:background="@color/azulmagtel">
+        tools:context="com.local.android.teleasistenciaticplus.act.offline.actMainOffline">
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:baselineAligned="false">
+            android:baselineAligned="false"
+            android:orientation="horizontal">
 
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#ff33b5e5"
-                android:gravity="center_vertical|center_horizontal">
+                android:gravity="center_vertical|center_horizontal"
+                android:orientation="horizontal">
 
                 <ImageButton
+                    android:id="@+id/imageButton2"
+                    style="?android:attr/borderlessButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageButton2"
-                    android:src="@drawable/ducha"
-                    style="?android:attr/borderlessButtonStyle" />
+                    android:background="@drawable/btn_ducha_states" />
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#fff7901e"
-                android:gravity="center_vertical|center_horizontal">
+                android:gravity="center_vertical|center_horizontal"
+                android:orientation="horizontal">
 
                 <ImageButton
+                    android:id="@+id/imageButton3"
+                    style="?android:attr/borderlessButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageButton3"
-                    android:src="@drawable/home"
-                    style="?android:attr/borderlessButtonStyle" />
+                    android:background="@drawable/btn_home_states" />
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#ffe3e9e3"
-                android:gravity="center_vertical|center_horizontal">
+                android:gravity="center_vertical|center_horizontal"
+                android:orientation="horizontal">
 
                 <ImageButton
+                    android:id="@+id/btnConfig"
+                    style="?android:attr/borderlessButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/btnConfig"
-                    android:src="@drawable/config_wheel"
-                    style="?android:attr/borderlessButtonStyle"
+                    android:background="@drawable/btn_config_wheel_states"
                     android:onClick="configuration_action_button" />
             </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
+            android:background="@color/white"
             android:gravity="center_vertical|center_horizontal"
-            android:background="@color/white">
+            android:orientation="horizontal">
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/tfmButton"
                 style="?android:attr/borderlessButtonStyle"
-                android:background="@drawable/boton_rojo_states"
-                android:clickable="true"
-                android:onClick="sendAvisoOffline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/titulo"
                 android:layout_centerHorizontal="true"
+                android:adjustViewBounds="true"
+                android:background="@drawable/boton_rojo_states"
+                android:clickable="true"
                 android:cropToPadding="false"
                 android:longClickable="false"
-                android:adjustViewBounds="true" />
+                android:onClick="sendAvisoOffline" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="fill_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#ffa466aa"></LinearLayout>
+                android:background="#ffa466aa"
+                android:orientation="horizontal">
+            </LinearLayout>
 
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#ff8bc53f"
-                android:gravity="center_vertical|center_horizontal">
+                android:gravity="center_vertical|center_horizontal"
+                android:orientation="horizontal">
 
                 <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/IamOKButton"
-                    android:src="@drawable/iam_ok"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_iam_ok_states"
                     android:clickable="true"
-                    android:onClick="sendAvisoIamOK"
                     android:longClickable="false"
-                    style="?android:attr/borderlessButtonStyle" />
+                    android:onClick="sendAvisoIamOK" />
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#ffa6aca9">
+                android:background="#ffa6aca9"
+                android:orientation="horizontal">
 
-                <TextView android:text="Modo offline"
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|right"
-                    android:gravity="right" />
+                    android:gravity="right"
+                    android:text="Modo offline" />
             </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>
 
-    <FrameLayout android:id="@+id/overlay_user_register_loading_screen"
+    <FrameLayout
+        android:id="@+id/overlay_user_register_loading_screen"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
 </merge>
