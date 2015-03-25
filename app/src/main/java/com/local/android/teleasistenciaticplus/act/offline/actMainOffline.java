@@ -18,6 +18,7 @@ import com.local.android.teleasistenciaticplus.act.user.actUserOptions;
 import com.local.android.teleasistenciaticplus.act.user.actUserOptionsPersonaContacto;
 import com.local.android.teleasistenciaticplus.fragment.fragUserRegister;
 import com.local.android.teleasistenciaticplus.lib.helper.AlertDialogShow;
+import com.local.android.teleasistenciaticplus.lib.helper.AppSMS;
 import com.local.android.teleasistenciaticplus.lib.helper.AppSharedPreferences;
 import com.local.android.teleasistenciaticplus.modelo.Constants;
 import com.local.android.teleasistenciaticplus.modelo.DebugLevel;
@@ -188,11 +189,29 @@ public class actMainOffline extends Activity implements fragUserRegister.OnFragm
                 overridePendingTransition(R.animator.animation2, R.animator.animation1);
 
             }
-
         }
 
-        //Operación de envio de SMS
+        //Operación de envío de SMS
+        String[] personasContacto = new AppSharedPreferences().getPersonasContacto();
 
+        if ( personasContacto[1].length() > 0) {
+            new AppSMS().generateSmsAviso( personasContacto[1] );
+        }
+
+        if ( personasContacto[3].length() > 0) {
+            new AppSMS().generateSmsAviso( personasContacto[3] );
+        }
+
+        if ( personasContacto[5].length() > 0) {
+            new AppSMS().generateSmsAviso( personasContacto[5] );
+        }
+
+        /////////
+        //Toast de confirmación de envío
+        /////////
+        Toast.makeText(getBaseContext(), getResources().getString(R.string.user_sms_sent) ,
+                Toast.LENGTH_LONG).show();
+        //Fin del mensaje de alerta
 
     }
 
@@ -224,6 +243,26 @@ public class actMainOffline extends Activity implements fragUserRegister.OnFragm
         }
 
         //Operación de envío de SMS
+        String[] personasContacto = new AppSharedPreferences().getPersonasContacto();
+
+        if ( personasContacto[1].length() > 0) {
+            new AppSMS().generateSmsIamOK( personasContacto[1] );
+        }
+
+        if ( personasContacto[3].length() > 0) {
+            new AppSMS().generateSmsIamOK( personasContacto[3] );
+        }
+
+        if ( personasContacto[5].length() > 0) {
+            new AppSMS().generateSmsIamOK( personasContacto[5] );
+        }
+
+        /////////
+        //Toast de confirmación de envío
+        /////////
+        Toast.makeText(getBaseContext(), getResources().getString(R.string.user_sms_sent) ,
+                Toast.LENGTH_LONG).show();
+        //Fin del mensaje de alerta
 
     }
 }
