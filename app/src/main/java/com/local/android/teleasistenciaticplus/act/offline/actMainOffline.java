@@ -18,6 +18,7 @@ import com.local.android.teleasistenciaticplus.act.user.actUserOptions;
 import com.local.android.teleasistenciaticplus.act.user.actUserOptionsPersonaContacto;
 import com.local.android.teleasistenciaticplus.fragment.fragUserRegister;
 import com.local.android.teleasistenciaticplus.lib.helper.AlertDialogShow;
+import com.local.android.teleasistenciaticplus.lib.helper.AppSMS;
 import com.local.android.teleasistenciaticplus.lib.helper.AppSharedPreferences;
 import com.local.android.teleasistenciaticplus.modelo.Constants;
 import com.local.android.teleasistenciaticplus.modelo.DebugLevel;
@@ -224,6 +225,19 @@ public class actMainOffline extends Activity implements fragUserRegister.OnFragm
         }
 
         //Operación de envío de SMS
+        String[] personasContacto = new AppSharedPreferences().getPersonasContacto();
+
+        if ( personasContacto[1].length() > 0) {
+            new AppSMS().generateSmsIamOK( personasContacto[1] );
+        }
+
+        if ( personasContacto[3].length() > 0) {
+            new AppSMS().generateSmsIamOK( personasContacto[3] );
+        }
+
+        if ( personasContacto[5].length() > 0) {
+            new AppSMS().generateSmsIamOK( personasContacto[5] );
+        }
 
     }
 }
