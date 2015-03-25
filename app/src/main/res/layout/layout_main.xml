@@ -45,11 +45,12 @@
         android:background="@drawable/boton_rojo_states"
         android:onClick="sendAviso"
         android:clickable="false"
-        android:layout_below="@+id/titulo"
-        android:layout_centerHorizontal="true"
         android:cropToPadding="false"
         android:longClickable="false"
-        android:adjustViewBounds="true" />
+        android:adjustViewBounds="true"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/titulo"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -62,12 +63,12 @@
         android:background="@drawable/green_button"
         android:layout_above="@+id/calling_text_box"
         android:layout_marginBottom="33dp"
-        android:layout_alignLeft="@+id/tfmButton"
-        android:layout_alignStart="@+id/tfmButton"
-        android:layout_alignRight="@+id/tfmButton"
-        android:layout_alignEnd="@+id/tfmButton"
         android:textColor="@color/black"
-        android:textSize="25sp" />
+        android:textSize="25sp"
+        android:layout_alignLeft="@+id/titulo"
+        android:layout_alignStart="@+id/titulo"
+        android:layout_alignRight="@+id/titulo"
+        android:layout_alignEnd="@+id/titulo" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -75,10 +76,10 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/red_button_label_send"
         android:id="@+id/btnLabel"
-        android:layout_alignBottom="@+id/tfmButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="127dp"
+        android:layout_marginBottom="81dp"
         android:textStyle="bold"
-        android:textSize="30sp" />
+        android:textSize="24sp"
+        android:layout_alignBottom="@+id/tfmButton"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
