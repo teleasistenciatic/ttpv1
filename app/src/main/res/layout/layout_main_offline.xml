@@ -27,7 +27,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/imageButton2"
-                    android:src="@drawable/ducha"
+                    android:background="@drawable/btn_ducha_states"
                     style="?android:attr/borderlessButtonStyle" />
             </LinearLayout>
 
@@ -43,7 +43,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/imageButton3"
-                    android:src="@drawable/home"
+                    android:background="@drawable/btn_home_states"
                     style="?android:attr/borderlessButtonStyle" />
             </LinearLayout>
 
@@ -59,9 +59,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/btnConfig"
-                    android:src="@drawable/config_wheel"
                     style="?android:attr/borderlessButtonStyle"
-                    android:onClick="configuration_action_button" />
+                    android:onClick="configuration_action_button"
+                    android:background="@drawable/btn_config_wheel_states" />
             </LinearLayout>
         </LinearLayout>
 
@@ -115,9 +115,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/IamOKButton"
-                    android:src="@drawable/iam_ok"
-                    android:clickable="false"
-                    android:longClickable="false"
+                    android:background="@drawable/btn_iam_ok_states"
                     style="?android:attr/borderlessButtonStyle" />
             </LinearLayout>
 
