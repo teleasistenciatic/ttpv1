@@ -11,17 +11,13 @@ public class AppSMS {
 
     String nombre;
     String apellidos;
-    String currentDateandTime;
-    String phoneNumberOrigin;
+    String currentDateandTime = new AppTime().getTimeDate();
 
     public AppSMS() {
-        this.currentDateandTime = new AppTime().getTimeDate(); //En el formato que le indiquemos
 
         String[] nombreApellidos = new AppSharedPreferences().getUserData();
         this.nombre = nombreApellidos[0];
         this.apellidos = nombreApellidos[1];
-
-        this.phoneNumberOrigin = new PhoneData().getNumber();
     }
 
     public void generateSmsIamOK(String phoneNumberDestination) {
