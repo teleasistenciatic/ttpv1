@@ -43,7 +43,8 @@ public class PhoneData {
             }*/
             AppLog.e("PhoneData","Error recuperando el valor del terminal",e);
         }
-
+        //TODO Eliminar el phoneNumber de la aplicación
+        phoneNumber = phoneImei;
 
     }
 
@@ -52,7 +53,7 @@ public class PhoneData {
      * @return phoneNumber
      */
     public String getNumber() {
-        return phoneNumber;
+        return phoneImei;
     }
 
     public String getPhoneImei() {

@@ -8,6 +8,7 @@ import android.view.View;
 import com.local.android.teleasistenciaticplus.R;
 import com.local.android.teleasistenciaticplus.act.offline.actMainOffline;
 import com.local.android.teleasistenciaticplus.act.online.actMain;
+import com.local.android.teleasistenciaticplus.lib.helper.AppLog;
 import com.local.android.teleasistenciaticplus.lib.networking.Networking;
 import com.local.android.teleasistenciaticplus.lib.networking.ServerOperations;
 import com.local.android.teleasistenciaticplus.modelo.Constants;
@@ -58,10 +59,12 @@ public class actLoadingScreen extends Activity implements Constants {
                 (ServerOperations.isRegisteredOnServer())) { //EL usuario está registrado en la aplicación
 
             GlobalData.setOperationMode(OperationMode.ONLINE);
+            AppLog.i("actLoadingScreen-->", "Online");
 
         } else {
 
             GlobalData.setOperationMode(OperationMode.OFFLINE);
+            AppLog.i("actLoadingScreen-->", "Offline");
 
         }
 

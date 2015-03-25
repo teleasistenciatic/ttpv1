@@ -9,7 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.local.android.teleasistenciaticplus.R;
@@ -96,6 +95,12 @@ public class actMain extends Activity implements Constants {
         } else if ( id == R.id.menu_actmain_debug_screen ) {
             Intent intent = new Intent(this, actMainDebug.class);
             startActivity(intent);
+
+            if( Constants.SHOW_ANIMATION ) {
+
+                overridePendingTransition(R.animator.animation2, R.animator.animation1);
+
+            }
         }
 
         return super.onOptionsItemSelected(item);
@@ -208,9 +213,9 @@ public class actMain extends Activity implements Constants {
             //tfmRedButton.setPressed(true);
             tfmRedButton.setBackgroundResource(R.drawable.grey_button200);
 
-            TextView tvBtnLabel;
-            tvBtnLabel = (TextView) findViewById(R.id.btnLabel);
-            tvBtnLabel.setText("");
+            //TextView tvBtnLabel;
+            //tvBtnLabel = (TextView) findViewById(R.id.btnLabel);
+            //tvBtnLabel.setText("");
 
             //Muestra botón de cancelar aviso
             Button btnCancelarAviso;
@@ -226,9 +231,9 @@ public class actMain extends Activity implements Constants {
 
             tfmRedButton.setBackgroundResource(R.drawable.red_button200);
 
-            TextView tvBtnLabel;
-            tvBtnLabel = (TextView) findViewById(R.id.btnLabel);
-            tvBtnLabel.setText(R.string.red_button_label_send);
+            //TextView tvBtnLabel;
+            //tvBtnLabel = (TextView) findViewById(R.id.btnLabel);
+            //tvBtnLabel.setText(R.string.red_button_label_send);
 
             //Oculta botón de cancelar aviso
             Button btnCancelarAviso;
