@@ -79,14 +79,13 @@
                 android:id="@+id/tfmButton"
                 style="?android:attr/borderlessButtonStyle"
                 android:background="@drawable/boton_rojo_states"
-
-                android:clickable="false"
+                android:clickable="true"
+                android:onClick="sendAvisoOffline"
                 android:layout_below="@+id/titulo"
                 android:layout_centerHorizontal="true"
                 android:cropToPadding="false"
                 android:longClickable="false"
                 android:adjustViewBounds="true" />
-                <!--android:onClick="sms_send_button"-->
 
         </LinearLayout>
 
@@ -116,7 +115,8 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/IamOKButton"
                     android:src="@drawable/iam_ok"
-                    android:clickable="false"
+                    android:clickable="true"
+                    android:onClick="sendAvisoIamOK"
                     android:longClickable="false"
                     style="?android:attr/borderlessButtonStyle" />
             </LinearLayout>
