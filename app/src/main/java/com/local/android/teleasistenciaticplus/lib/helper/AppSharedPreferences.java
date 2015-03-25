@@ -84,6 +84,24 @@ public class AppSharedPreferences implements Constants {
     }
 
     /**
+     * Borrar los datos del sharedPreferences
+     */
+    public void deletePersonasContacto () {
+        SharedPreferences.Editor editor = GlobalData.getAppContext().getSharedPreferences( APP_SHARED_PREFERENCES_FILE , Context.MODE_PRIVATE ).edit();
+
+        editor.putString("nombre1", "");
+        editor.putString("telefono1", "");
+
+        editor.putString("nombre2", "");
+        editor.putString("telefono2", "");
+
+        editor.putString("nombre3", "");
+        editor.putString("telefono3", "");
+
+        editor.commit();
+    }
+
+    /**
      * Devuelve un array con los teléfonos de contacto
      * @return
      */

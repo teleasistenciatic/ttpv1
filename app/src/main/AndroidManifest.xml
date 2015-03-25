@@ -45,8 +45,8 @@
             android:icon="@drawable/ic_launcher"
             android:label="@string/app_name"
             android:relinquishTaskIdentity="true"
-            android:theme="@style/fullscreen"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:theme="@style/fullscreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -124,6 +124,10 @@
         <activity
             android:name=".act.user.actUserOptionsPersonaContacto"
             android:label="@string/title_activity_act_user_options_persona_contacto" >
+        </activity>
+        <activity
+            android:name=".act.debug.actDebugUserConfig"
+            android:label="@string/title_activity_act_debug_user_config" >
         </activity>
     </application>
 

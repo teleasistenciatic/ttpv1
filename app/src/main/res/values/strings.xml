@@ -107,13 +107,18 @@
         <string name="title_activity_act_user_options">Configuración usuario/a</string>
         <string name="title_activity_act_user_options_datos_personales">Configuración > Datos personales</string>
         <string name="title_activity_act_user_options_persona_contacto">Configuración > Persona/s de Contacto</string>
-
-        <string name="title_activity_act_user_register">actUserRegister</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-        <string name="hello_blank_fragment">Hello blank fragment</string>
-        <string name="user_register_porfavor_label">Por favor, introduzca sus datos personales</string>
+        <string name="title_activity_act_debug_user_config">Configuración > sharedPreferences</string>
 
     <!-- Fin cadenas actMain Debug -->
+
+        <!--Comprobación de registro de usuario -->
+            <string name="user_register_porfavor_label">Por favor, introduzca sus datos personales</string>
+        <!-- Fin cadenas registro de usuario -->
+
+        <!--Comprobación de registro de usuario -->
+            <string name="user_register_no_phone_contacs">Se necesitan personas de contacto para poder envíar el aviso.</string>
+            <string name="user_register_no_phone_contacs_title">No hay personas de contacto</string>
+
+    <!-- Fin cadenas registro de usuario -->
 
 </resources>
