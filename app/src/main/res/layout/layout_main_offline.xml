@@ -101,6 +101,13 @@
                 android:layout_weight="1"
                 android:background="#ffa466aa"
                 android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/familiarButton"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_familar_states" />
             </LinearLayout>
 
             <LinearLayout
