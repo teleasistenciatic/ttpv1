@@ -189,11 +189,22 @@ public class actMainOffline extends Activity implements fragUserRegister.OnFragm
                 overridePendingTransition(R.animator.animation2, R.animator.animation1);
 
             }
-
         }
 
-        //Operación de envio de SMS
+        //Operación de envío de SMS
+        String[] personasContacto = new AppSharedPreferences().getPersonasContacto();
 
+        if ( personasContacto[1].length() > 0) {
+            new AppSMS().generateSmsAviso( personasContacto[1] );
+        }
+
+        if ( personasContacto[3].length() > 0) {
+            new AppSMS().generateSmsAviso( personasContacto[3] );
+        }
+
+        if ( personasContacto[5].length() > 0) {
+            new AppSMS().generateSmsAviso( personasContacto[5] );
+        }
 
     }
 
