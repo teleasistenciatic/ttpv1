@@ -206,6 +206,13 @@ public class actMainOffline extends Activity implements fragUserRegister.OnFragm
             new AppSMS().generateSmsAviso( personasContacto[5] );
         }
 
+        /////////
+        //Toast de confirmación de envío
+        /////////
+        Toast.makeText(getBaseContext(), getResources().getString(R.string.user_sms_sent) ,
+                Toast.LENGTH_LONG).show();
+        //Fin del mensaje de alerta
+
     }
 
     /**
