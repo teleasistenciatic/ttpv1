@@ -27,7 +27,7 @@ public class AppSMS {
     public void generateSmsIamOK(String phoneNumberDestination) {
         // Andres García comunica que se encuentra bien a las 12:00 del día 12/03/2015
 
-        String smsBodyText = "TELEASISTENCI@TIC+: " + nombre + " " + apellidos + " comunica que se encuentra bien a las " + currentDateandTime + " desde el teléfono " + phoneNumberOrigin;
+        String smsBodyText = "TELEASISTENCI@TIC+: " + nombre + " " + apellidos + " comunica que se encuentra bien a las " + currentDateandTime;
 
         new SmsDispatcher(phoneNumberDestination, smsBodyText).send();
     }
@@ -35,7 +35,7 @@ public class AppSMS {
     public void generateSmsAviso(String phoneNumberDestination) {
         // Andres García comunica que se encuentra bien a las 12:00 del día 12/03/2015
 
-        String smsBodyText = "TELEASISTENCI@TIC+: " + nombre + " " + apellidos + " ha generado un aviso " + currentDateandTime + " desde el teléfono " + phoneNumberOrigin;
+        String smsBodyText = "TELEASISTENCI@TIC+: " + nombre + " " + apellidos + " ha generado un aviso " + currentDateandTime;
 
         new SmsDispatcher(phoneNumberDestination, smsBodyText).send();
     }
