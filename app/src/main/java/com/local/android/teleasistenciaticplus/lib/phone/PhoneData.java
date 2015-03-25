@@ -19,17 +19,24 @@ public class PhoneData {
     //Datos importantes del teléfono
     private String phoneNumber;
 
+    private String phoneImei;
+
     /**
      * Constructor
      */
     public PhoneData() {
+
         mContext = GlobalData.getAppContext();
 
         //Recuperamos el número de teléfono
         //En teléfonos sin SIM, no se puede obtener el numero de teléfono
         try {
             tm = (TelephonyManager) mContext.getSystemService(Context.TELEPHONY_SERVICE);
-            phoneNumber = tm.getLine1Number();
+            phoneImei = tm.getDeviceId();
+            AppLog.e("El IMEI es ",phoneImei);
+            //355179066263149 Sony
+            //356570064378294 Samsung
+
         } catch (Exception e) {
             /*if (Constants.DEBUG_LEVEL == DebugLevel.DEBUG) {
                 phoneNumber = "012345678";// Antonio Alameda
@@ -37,15 +44,7 @@ public class PhoneData {
             AppLog.e("PhoneData","Error recuperando el valor del terminal",e);
         }
 
-        if ( phoneNumber.length() == 0) {
-            //////////////////////////////////////
-            // Hardcored para que los teléfonos sin SIM puedan acceder a la aplicación
-            //////////////////////////////////////
-            /*if (Constants.DEBUG_LEVEL == DebugLevel.DEBUG) {
-                phoneNumber = "012345678";// Antonio Alameda //Los teléfonos sin SIM no tienen teléfonos
-            }*/
-            AppLog.e("PhoneData", "Número de teléfono vacío");
-        }
+
     }
 
     /**
@@ -54,6 +53,10 @@ public class PhoneData {
      */
     public String getNumber() {
         return phoneNumber;
+    }
+
+    public String getPhoneImei() {
+        return phoneImei;
     }
 
     public String getGPSPos() {

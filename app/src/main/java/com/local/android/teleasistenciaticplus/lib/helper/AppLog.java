@@ -95,7 +95,6 @@ public class AppLog {
         if (Constants.DEBUG_LEVEL == DebugLevel.PRODUCCION) {
             return;
         }
-
         msg = msg + "\n" + e.getMessage();
         Log.e( tag + " --> ", msg);
         e.printStackTrace();

@@ -3,6 +3,7 @@ package com.local.android.teleasistenciaticplus.modelo;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.telephony.TelephonyManager;
 
 import com.local.android.teleasistenciaticplus.R;
 import com.local.android.teleasistenciaticplus.lib.filesystem.FileOperation;
@@ -29,7 +30,7 @@ public class Hook extends Application {
         super.onCreate();
 
         GlobalData.setContext( getApplicationContext() );
-        GlobalData.setPhoneNumber( new PhoneData().getNumber() );
+        GlobalData.setPhoneNumber( new PhoneData().getPhoneImei() );
 
         //Si existe el fichero de LOG se inicializa
         FileOperation.fileLogInitialize();
