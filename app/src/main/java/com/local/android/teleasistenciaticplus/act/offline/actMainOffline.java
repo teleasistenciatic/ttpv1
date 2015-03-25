@@ -114,7 +114,7 @@ public class actMainOffline extends Activity implements fragUserRegister.OnFragm
 
     public void fragmentUserRegisterHide() {
 
-        Fragment miFragRegistroUsuario = new fragUserRegister();
+        //Fragment miFragRegistroUsuario = new fragUserRegister();
 
         FragmentManager fragmentManager = getFragmentManager();
         Fragment userFragment = getFragmentManager().findFragmentById(R.id.overlay_user_register_loading_screen);
@@ -144,6 +144,57 @@ public class actMainOffline extends Activity implements fragUserRegister.OnFragm
 
             overridePendingTransition(R.animator.animation2, R.animator.animation1);
 
+        }
+    }
+
+    /**
+     * Envio de los SMS a los familiares
+     * @param view
+     */
+    public void sendAvisoOffline(View view) {
+
+        //1. Leemos la lista de personas de contacto
+        //2. Se les envía SMS
+        //3. Se muestra un mensaje de indicación
+
+        Boolean hayPersonasContactoConTelefono = new AppSharedPreferences().hasPersonasContacto();
+
+        if ( !hayPersonasContactoConTelefono ) {
+            //Se abre el menú de personas de contacto
+            configuration_action_button(view);
+        }
+
+    }
+
+    /**
+     * botón para indicar que estamos correctamente
+     * @param view
+     */
+    public void sendAvisoIamOK(View view) {
+
+        //1. Leemos la lista de personas de contacto
+        //2. Se les envía SMS
+        //3. Se muestra un mensaje de indicación
+
+        Boolean hayPersonasContactoConTelefono = new AppSharedPreferences().hasPersonasContacto();
+
+        if ( !hayPersonasContactoConTelefono ) {
+
+
+            /////////
+            //Genera una alerta en caso de que no tengamos asignados los contactos
+            /////////
+            AlertDialogShow popup_conn = new AlertDialogShow();
+            popup_conn.setTitulo(getResources().getString(R.string.check_server_conn_title));
+
+            popup_conn.setMessage(getResources().getString(R.string.check_server_conn_error));
+
+            popup_conn.setLabelNeutral(getResources().getString(R.string.close_window));
+            popup_conn.show(getFragmentManager(), "dummyTAG");
+            //Fin del mensaje de alerta
+
+            //Se abre el menú de personas de contacto
+            configuration_action_button(view);
         }
 
     }

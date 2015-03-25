@@ -12,11 +12,19 @@ public class SmsDispatcher {
     private String phoneNumber; //Destinatario
     private String message; //cuerpo del mensaje
 
+    /**
+     * Constructor
+     * @param phone telefono
+     * @param message mensaje
+     */
     public SmsDispatcher(String phone, String message) {
         this.phoneNumber = phone;
         this.message = message;
     }
 
+    /**
+     * Enviar SMS
+     */
     public void send() {
         // ¿Qué import es? import android.telephony.gsm.SmsManager;
         SmsManager sms = SmsManager.getDefault();

@@ -27,7 +27,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/imageButton2"
-                    android:background="@drawable/btn_ducha_states"
+                    android:src="@drawable/ducha"
                     style="?android:attr/borderlessButtonStyle" />
             </LinearLayout>
 
@@ -43,7 +43,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/imageButton3"
-                    android:background="@drawable/btn_home_states"
+                    android:src="@drawable/home"
                     style="?android:attr/borderlessButtonStyle" />
             </LinearLayout>
 
@@ -59,9 +59,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/btnConfig"
+                    android:src="@drawable/config_wheel"
                     style="?android:attr/borderlessButtonStyle"
-                    android:onClick="configuration_action_button"
-                    android:background="@drawable/btn_config_wheel_states" />
+                    android:onClick="configuration_action_button" />
             </LinearLayout>
         </LinearLayout>
 
@@ -79,7 +79,6 @@
                 android:id="@+id/tfmButton"
                 style="?android:attr/borderlessButtonStyle"
                 android:background="@drawable/boton_rojo_states"
-
                 android:clickable="true"
                 android:onClick="sendAvisoOffline"
                 android:layout_below="@+id/titulo"
@@ -87,7 +86,6 @@
                 android:cropToPadding="false"
                 android:longClickable="false"
                 android:adjustViewBounds="true" />
-                <!--android:onClick="sms_send_button"-->
 
         </LinearLayout>
 
@@ -116,7 +114,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/IamOKButton"
-                    android:background="@drawable/btn_iam_ok_states"
+                    android:src="@drawable/iam_ok"
+                    android:clickable="true"
+                    android:onClick="sendAvisoIamOK"
+                    android:longClickable="false"
                     style="?android:attr/borderlessButtonStyle" />
             </LinearLayout>
 

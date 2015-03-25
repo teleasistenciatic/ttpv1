@@ -105,4 +105,25 @@ public class AppSharedPreferences implements Constants {
         return personasContacto;
     }
 
+    /**
+     * Comprobación de si hay datos de contacto
+     * @return boolean hay alguna persona de contacto
+     */
+    public Boolean hasPersonasContacto() {
+
+        SharedPreferences prefs = GlobalData.getAppContext().getSharedPreferences( APP_SHARED_PREFERENCES_FILE , Context.MODE_PRIVATE);
+        String nombre1 = prefs.getString("nombre1", "");
+        String telefono1 = prefs.getString("telefono1", "");
+        String nombre2 = prefs.getString("nombre2", "");
+        String telefono2 = prefs.getString("telefono2", "");
+        String nombre3 = prefs.getString("nombre3", "");
+        String telefono3 = prefs.getString("telefono3", "");
+
+        if ( telefono1.length() > 0 || telefono2.length() > 0 || telefono3.length() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
