@@ -24,11 +24,12 @@
                 android:orientation="horizontal">
 
                 <ImageButton
-                    android:id="@+id/imageButton2"
+                    android:id="@+id/btnShowerMode"
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/btn_ducha_states" />
+                    android:background="@drawable/btn_ducha_states"
+                    android:onClick="showermode_action_button" />
             </LinearLayout>
 
             <LinearLayout
@@ -40,11 +41,12 @@
                 android:orientation="horizontal">
 
                 <ImageButton
-                    android:id="@+id/imageButton3"
+                    android:id="@+id/btnBackToHome"
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/btn_home_states" />
+                    android:background="@drawable/btn_home_states"
+                    android:onClick="backtohome_action_button" />
             </LinearLayout>
 
             <LinearLayout
@@ -104,11 +106,12 @@
                 android:gravity="center_vertical|center_horizontal">
 
                 <ImageButton
-                    android:id="@+id/familiarButton"
+                    android:id="@+id/btnFamiliar"
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/btn_familar_states" />
+                    android:background="@drawable/btn_familar_states"
+                    android:onClick="familiar_action_button" />
             </LinearLayout>
 
             <LinearLayout
@@ -120,7 +123,7 @@
                 android:orientation="horizontal">
 
                 <ImageButton
-                    android:id="@+id/IamOKButton"
+                    android:id="@+id/btnIamOK"
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="wrap_content"
 

@@ -23,6 +23,12 @@ import com.local.android.teleasistenciaticplus.lib.helper.AppSharedPreferences;
 import com.local.android.teleasistenciaticplus.modelo.Constants;
 import com.local.android.teleasistenciaticplus.modelo.DebugLevel;
 
+/**
+ * Actividad princical del modo OFFLINE
+ *
+ * @param
+ */
+
 public class actMainOffline extends Activity implements fragUserRegister.OnFragmentInteractionListener {
 
     @Override
@@ -132,7 +138,7 @@ public class actMainOffline extends Activity implements fragUserRegister.OnFragm
     /////////////////////////////////////////////////////////////
 
     /**
-     * Botón de Configuración
+     * Botón de acceso a la Configuración
      * Da acceso a la configuración de parámetros personales
      * @param
      *
@@ -149,6 +155,77 @@ public class actMainOffline extends Activity implements fragUserRegister.OnFragm
 
         }
     }
+
+    /**
+     * Botón para volver a casa
+     * Activa la opción de volver a casa
+     * @param view
+     *
+     */
+    public void backtohome_action_button(View view) {
+
+        Toast.makeText(getBaseContext(), "Volver a Casa" , Toast.LENGTH_LONG).show();
+        //TODO implementar este método y la clase (actBackToHome)
+        /*
+        Intent intent = new Intent(this, actBackToHome.class);
+
+
+        startActivity(intent);
+
+        if( Constants.SHOW_ANIMATION ) {
+
+            overridePendingTransition(R.animator.animation2, R.animator.animation1);
+
+        }
+        */
+    }
+
+
+    /**
+     * Botón para activar el modo ducha
+     * Activa el modo ducha
+     * @param view
+     *
+     */
+    public void showermode_action_button(View view) {
+
+        Toast.makeText(getBaseContext(), "Modo Ducha" , Toast.LENGTH_LONG).show();
+        //TODO implementar este método y la clase (actShowerMode)
+        /*
+        Intent intent = new Intent(this, actShowerMode.class);
+
+
+        startActivity(intent);
+
+        if( Constants.SHOW_ANIMATION ) {
+
+            overridePendingTransition(R.animator.animation2, R.animator.animation1);
+
+        }
+        */
+    }
+
+
+    /**
+     * Botón para acceder a los contactos familiares
+     * Atajo a los contactos familiares
+     * @param view
+     *
+     */
+    public void familiar_action_button(View view) {
+
+        Intent intent = new Intent(this, actUserOptionsPersonaContacto.class);
+
+        startActivity(intent);
+
+        if( Constants.SHOW_ANIMATION ) {
+
+            overridePendingTransition(R.animator.animation2, R.animator.animation1);
+
+        }
+    }
+
+
 
     /**
      * Envio de los SMS a los familiares
@@ -216,7 +293,7 @@ public class actMainOffline extends Activity implements fragUserRegister.OnFragm
     }
 
     /**
-     * botón para indicar que estamos correctamente
+     * botón para enviar SMS de tranquilidad (I'm OK)
      * @param view
      */
     public void sendAvisoIamOK(View view) {
