@@ -53,11 +53,11 @@ public class PhoneData {
      * @return phoneNumber
      */
     public String getNumber() {
-        return phoneImei;
+        return phoneNumber;
     }
 
     public String getPhoneImei() {
-        return phoneImei;
+        return phoneNumber;
     }
 
     public String getGPSPos() {

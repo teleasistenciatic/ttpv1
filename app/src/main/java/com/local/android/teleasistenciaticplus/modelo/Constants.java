@@ -54,7 +54,7 @@ public interface Constants {
     // OPERACIONES HTTP
     ////////////////////////////////////////////////
 
-        public static final int HTTP_OPERATION_DELAY = 1000;
+        public static final int HTTP_OPERATION_DELAY = 3000;
 
     ////////////////////////////////////////////////
     // FICHERO DE SHAREDPREFERENCES

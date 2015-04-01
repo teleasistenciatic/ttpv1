@@ -20,6 +20,7 @@ import com.local.android.teleasistenciaticplus.fragment.fragUserRegister;
 import com.local.android.teleasistenciaticplus.lib.helper.AlertDialogShow;
 import com.local.android.teleasistenciaticplus.lib.helper.AppSMS;
 import com.local.android.teleasistenciaticplus.lib.helper.AppSharedPreferences;
+import com.local.android.teleasistenciaticplus.lib.playsound.PlaySound;
 import com.local.android.teleasistenciaticplus.modelo.Constants;
 import com.local.android.teleasistenciaticplus.modelo.DebugLevel;
 
@@ -35,6 +36,9 @@ public class actMainOffline extends Activity implements fragUserRegister.OnFragm
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_main_offline);
+
+        //Damos la bienvenida
+        PlaySound.play(R.raw.bienvenido);
 
         /////////////////////////////////////////////////////////////
         // Si no tiene datos personales (nombre + apellidos) en la aplicación se muestra el fragmento
@@ -190,6 +194,8 @@ public class actMainOffline extends Activity implements fragUserRegister.OnFragm
     public void showermode_action_button(View view) {
 
         Toast.makeText(getBaseContext(), "Modo Ducha" , Toast.LENGTH_LONG).show();
+        PlaySound.play(R.raw.modo_ducha_activado);
+
         //TODO implementar este método y la clase (actShowerMode)
         /*
         Intent intent = new Intent(this, actShowerMode.class);
@@ -290,6 +296,9 @@ public class actMainOffline extends Activity implements fragUserRegister.OnFragm
                 Toast.LENGTH_LONG).show();
         //Fin del mensaje de alerta
 
+        //Avisamos al usuario de que ha enviado el SMS
+        PlaySound.play(R.raw.mensaje_enviado);
+
     }
 
     /**
@@ -340,6 +349,9 @@ public class actMainOffline extends Activity implements fragUserRegister.OnFragm
         Toast.makeText(getBaseContext(), getResources().getString(R.string.user_sms_sent) ,
                 Toast.LENGTH_LONG).show();
         //Fin del mensaje de alerta
+
+        //Avisamos al usuario de que ha enviado el SMS
+        PlaySound.play(R.raw.mensaje_enviado);
 
     }
 }

@@ -15,6 +15,7 @@ import com.local.android.teleasistenciaticplus.R;
 import com.local.android.teleasistenciaticplus.act.debug.actMainDebug;
 import com.local.android.teleasistenciaticplus.lib.helper.AppLog;
 import com.local.android.teleasistenciaticplus.lib.networking.ServerOperations;
+import com.local.android.teleasistenciaticplus.lib.playsound.PlaySound;
 import com.local.android.teleasistenciaticplus.modelo.Constants;
 import com.local.android.teleasistenciaticplus.modelo.DebugLevel;
 
@@ -36,6 +37,9 @@ public class actMain extends Activity implements Constants {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_main);
 
+        //Damos la bienvenida
+        PlaySound.play(R.raw.bienvenido);
+
         //Personalizamos el ActionBar con icono y el nombre del usuario
         customizeActionBar();
 
@@ -52,7 +56,7 @@ public class actMain extends Activity implements Constants {
             setAvisoActived(true);
         }
         else {
-            //No hay aviso activo (situación inicial por defecto cunado se instala la App)
+            //No hay aviso activo (situación inicial por defecto cuando se instala la App)
             setAvisoActived(false);
         }
     }
@@ -160,11 +164,16 @@ public class actMain extends Activity implements Constants {
 
                 setAvisoActived(true);
 
+                //Confirmamos al usuario el envío del aviso
+                PlaySound.play(R.raw.aviso_enviado);
+
             }
             else {
                 //Fracaso
                 AppLog.i(TAG, "sendAviso --> ERROR Aviso NO creado");
                 Toast.makeText(getApplicationContext(), R.string.dialer_error, Toast.LENGTH_SHORT).show();
+                //Avisamos al usuario sobre el fallo del envío del aviso
+                PlaySound.play(R.raw.error_aviso_no_enviado);
             }
         }
     }
@@ -185,11 +194,18 @@ public class actMain extends Activity implements Constants {
 
             setAvisoActived(false);
 
+            //Confirmamos al usuario la cancelación del aviso
+            PlaySound.play(R.raw.aviso_cancelado);
+
         }
 
         else {
             AppLog.i(TAG, "ERROR: Cancelar aviso");
             Toast.makeText(getApplicationContext(), R.string.dialer_abort_error, Toast.LENGTH_SHORT).show();
+
+            //Confirmamos al usuario el envío del aviso
+            PlaySound.play(R.raw.error_aviso_no_cancelado);
+
         }
     }
 
