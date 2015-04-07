@@ -29,11 +29,11 @@ public class SmsDispatcher {
         // ¿Qué import es? import android.telephony.gsm.SmsManager;
         SmsManager sms = SmsManager.getDefault();
         try {
-            sms.sendTextMessage(this.phoneNumber, null, message, null, null);
+            sms.sendTextMessage(phoneNumber, null, message, null, null);
         } catch (Exception e) {
             AppLog.e("SmsDispatcher", "SMS send error", e);
         }
-        AppLog.i("SMSSend", this.phoneNumber + " " + message);
+        AppLog.i("SMSSend", phoneNumber + " " + message);
     }
 
     /**
@@ -54,8 +54,3 @@ public class SmsDispatcher {
         this.message = message;
     }
 }
-
-/**
- * // Enviar un mensaje con intent
- startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("sms:" + phoneNumber)));
- **/
