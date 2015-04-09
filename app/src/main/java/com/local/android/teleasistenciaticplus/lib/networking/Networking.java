@@ -4,7 +4,6 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-import com.local.android.teleasistenciaticplus.lib.helper.AppLog;
 import com.local.android.teleasistenciaticplus.modelo.GlobalData;
 
 public class Networking {
@@ -15,7 +14,6 @@ public class Networking {
      */
     public static boolean isConnectedToInternet() {
         Context mContext = GlobalData.getAppContext();
-        AppLog.i("SSSSSSSSSSSSSSS", "hola");
         try {
             ConnectivityManager cm =
                     (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -25,7 +23,6 @@ public class Networking {
                     activeNetwork.isAvailable() &&
                     activeNetwork.isConnected();
         } catch (Exception e) {
-            AppLog.i("SSSSSSSSSSSSSSS", e.toString());
             return false;
         }
     }

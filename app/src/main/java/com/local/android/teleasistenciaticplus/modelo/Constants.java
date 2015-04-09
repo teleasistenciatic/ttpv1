@@ -21,8 +21,10 @@ public interface Constants {
     ////////////////////////////////////////////////
 
         public static final long LOADING_SCREEN_DELAY = 3000; //Con 1000 a veces da problemas, no le ha dado tiempo a terminar de ejecutar la lectura del archivo
+        public static final long SMS_SENDING_DELAY = 5000; //Frecuencia de envío de mensajes
         public static final long MEMORY_DIVIDER = 1048576L; //BytestoMegabytes
-        public static final Boolean SHOW_ANIMATION = true; //Decide si se realizan transiciones entre actividades o fragmentos
+        public static final boolean SHOW_ANIMATION = true; //Decide si se realizan transiciones entre actividades o fragmentos
+        public static final boolean PLAY_SOUNDS = false; //Decide si se reproducen sonidos en la aplicación
 
         /*
         1024 bytes      == 1 kilobyte

@@ -6,9 +6,11 @@ import android.app.FragmentManager;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,11 +20,14 @@ import com.local.android.teleasistenciaticplus.act.user.actUserOptions;
 import com.local.android.teleasistenciaticplus.act.user.actUserOptionsPersonaContacto;
 import com.local.android.teleasistenciaticplus.fragment.fragUserRegister;
 import com.local.android.teleasistenciaticplus.lib.helper.AlertDialogShow;
-import com.local.android.teleasistenciaticplus.lib.helper.AppSMS;
+import com.local.android.teleasistenciaticplus.lib.helper.AppLog;
 import com.local.android.teleasistenciaticplus.lib.helper.AppSharedPreferences;
 import com.local.android.teleasistenciaticplus.lib.playsound.PlaySound;
 import com.local.android.teleasistenciaticplus.modelo.Constants;
 import com.local.android.teleasistenciaticplus.modelo.DebugLevel;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Actividad princical del modo OFFLINE
@@ -32,13 +37,25 @@ import com.local.android.teleasistenciaticplus.modelo.DebugLevel;
 
 public class actMainOffline extends Activity implements fragUserRegister.OnFragmentInteractionListener {
 
+
+    ImageButton SMSAlertButton;
+    ImageButton SMSOKButton;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_main_offline);
 
+        SMSAlertButton = (ImageButton) findViewById(R.id.tfmButton);
+        SMSOKButton = (ImageButton) findViewById(R.id.btnIamOK);
+
         //Damos la bienvenida
-        PlaySound.play(R.raw.bienvenido);
+        if(Constants.PLAY_SOUNDS){
+            PlaySound.play(R.raw.bienvenido);
+        }
+
 
         /////////////////////////////////////////////////////////////
         // Si no tiene datos personales (nombre + apellidos) en la aplicación se muestra el fragmento
@@ -240,8 +257,10 @@ public class actMainOffline extends Activity implements fragUserRegister.OnFragm
     public void sendAvisoOffline(View view) {
 
         //1. Leemos la lista de personas de contacto
+        //2. Comprobamos el tiempo transcurrido desde el último SMS enviado
         //2. Se les envía SMS
         //3. Se muestra un mensaje de indicación
+
 
         Boolean hayPersonasContactoConTelefono = new AppSharedPreferences().hasPersonasContacto();
 
@@ -278,27 +297,71 @@ public class actMainOffline extends Activity implements fragUserRegister.OnFragm
         String[] personasContacto = new AppSharedPreferences().getPersonasContacto();
 
         if ( personasContacto[1].length() > 0) {
-            new AppSMS().generateSmsAviso( personasContacto[1] );
+
+            //new AppSMS().generateSmsAviso( personasContacto[1] );
         }
 
         if ( personasContacto[3].length() > 0) {
-            new AppSMS().generateSmsAviso( personasContacto[3] );
+
+            //new AppSMS().generateSmsAviso( personasContacto[3] );
         }
 
         if ( personasContacto[5].length() > 0) {
-            new AppSMS().generateSmsAviso( personasContacto[5] );
+
+            //new AppSMS().generateSmsAviso( personasContacto[5] );
         }
 
-        /////////
-        //Toast de confirmación de envío
-        /////////
-        Toast.makeText(getBaseContext(), getResources().getString(R.string.user_sms_sent) ,
-                Toast.LENGTH_LONG).show();
-        //Fin del mensaje de alerta
+        //TODO: mejorar con el control de errores de SMS
 
-        //Avisamos al usuario de que ha enviado el SMS
-        PlaySound.play(R.raw.mensaje_enviado);
+        //Si se ha mandado algún SMS...
 
+        if ( (personasContacto[1].length() + personasContacto[3].length() + personasContacto[5].length() ) > 0) {
+
+            //Actualizamos el tiempo del envío del mensaje
+            SimpleDateFormat sdf = new SimpleDateFormat("EEEE dd-MM-yyyy 'a las' HH:mm:ss");
+
+            String currentDateandTime = sdf.format(new Date());
+
+            //Mostramos el texto en la pantalla
+            TextView tvUltimoSMSEnviado = (TextView) findViewById(R.id.tvUltimoSMSEnviado);
+
+            tvUltimoSMSEnviado.setText("Último SMS enviado el " + currentDateandTime);
+
+            AppLog.i("sendAvisoOffline", "SMS enviado: " + tvUltimoSMSEnviado.getText());
+
+            //TODO: almacenar en sharedpreferences la fecha del último SMS que se envió
+
+
+            /////////
+            //Toast de confirmación de envío
+            /////////
+            //Toast.makeText(getBaseContext(), getResources().getString(R.string.user_sms_sent) ,
+            //        Toast.LENGTH_LONG).show();
+            //Fin del mensaje de alerta
+
+
+            //Avisamos al usuario de que ha enviado el SMS con un sonido
+            if(Constants.PLAY_SOUNDS) {
+
+                PlaySound.play(R.raw.mensaje_enviado);
+
+            }
+
+            //Deshabilitamos el botón y cambiamos su aspecto
+            view.setEnabled(false);
+
+            view.setBackgroundResource(R.drawable.grey_button200);
+
+            //Habilitamos el botón transcurridos unos segundos
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    SMSAlertButton.setEnabled(true);
+                    SMSAlertButton.setBackgroundResource(R.drawable.red_button200);
+                }
+            },Constants.SMS_SENDING_DELAY);
+
+        }
     }
 
     /**
@@ -332,26 +395,83 @@ public class actMainOffline extends Activity implements fragUserRegister.OnFragm
         String[] personasContacto = new AppSharedPreferences().getPersonasContacto();
 
         if ( personasContacto[1].length() > 0) {
-            new AppSMS().generateSmsIamOK( personasContacto[1] );
+
+            //new AppSMS().generateSmsIamOK( personasContacto[1] );
+
         }
 
         if ( personasContacto[3].length() > 0) {
-            new AppSMS().generateSmsIamOK( personasContacto[3] );
+
+            //new AppSMS().generateSmsIamOK( personasContacto[3] );
+
         }
 
         if ( personasContacto[5].length() > 0) {
-            new AppSMS().generateSmsIamOK( personasContacto[5] );
+
+            //new AppSMS().generateSmsIamOK( personasContacto[5] );
+
         }
 
-        /////////
-        //Toast de confirmación de envío
-        /////////
-        Toast.makeText(getBaseContext(), getResources().getString(R.string.user_sms_sent) ,
-                Toast.LENGTH_LONG).show();
-        //Fin del mensaje de alerta
 
-        //Avisamos al usuario de que ha enviado el SMS
-        PlaySound.play(R.raw.mensaje_enviado);
+
+        //Si se ha mandado algún SMS...
+
+        if ( (personasContacto[1].length() + personasContacto[3].length() + personasContacto[5].length() ) > 0) {
+
+            //Actualizamos el tiempo del envío del mensaje
+            SimpleDateFormat sdf = new SimpleDateFormat("EEEE dd-MM-yyyy 'a las' HH:mm:ss");
+
+            String currentDateandTime = sdf.format(new Date());
+
+            //Mostramos el texto en la pantalla
+            TextView tvUltimoSMSEnviado = (TextView) findViewById(R.id.tvUltimoSMSEnviado);
+
+            tvUltimoSMSEnviado.setText("Último SMS enviado el " + currentDateandTime);
+
+            AppLog.i("sendAvisoOffline", "SMS enviado: " + tvUltimoSMSEnviado.getText());
+
+            //TODO: almacenar en sharedpreferences la fecha del último SMS que se envió
+
+
+            /////////
+            //Toast de confirmación de envío
+            /////////
+            //Toast.makeText(getBaseContext(), getResources().getString(R.string.user_sms_sent) ,
+            //        Toast.LENGTH_LONG).show();
+            //Fin del mensaje de alerta
+
+
+            //Avisamos al usuario de que ha enviado el SMS con un sonido
+            if(Constants.PLAY_SOUNDS) {
+
+                PlaySound.play(R.raw.mensaje_enviado);
+
+            }
+
+            //Deshabilitamos el botón y cambiamos su aspecto
+            view.setEnabled(false);
+
+            view.setBackgroundResource(R.drawable.iam_ok_pressed);
+
+            //Habilitamos el botón transcurridos unos segundos
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    SMSOKButton.setEnabled(true);
+                    SMSOKButton.setBackgroundResource(R.drawable.iam_ok);
+                }
+            },Constants.SMS_SENDING_DELAY);
+
+        }
+
+
+
+
+
+
+
+
+
 
     }
 }
