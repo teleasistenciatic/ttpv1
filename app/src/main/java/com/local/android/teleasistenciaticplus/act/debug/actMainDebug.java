@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.local.android.teleasistenciaticplus.R;
 
@@ -41,6 +40,7 @@ public class actMainDebug extends Activity {
                     "Comprobacion conexión a servidor", // id 4
                     "Acceso de datos e internet", //id 5
                     "Uso de la memoria", //id 6
+                    "Modo ducha", //id 7
             };
 
             /// Creación del adaptador con su String
@@ -62,6 +62,9 @@ public class actMainDebug extends Activity {
                     Class actToLoad = null;
 
                     switch(position) {
+                        case 7: //"Modo ducha"
+                            actToLoad = actDebugChronometer.class;
+                            break;
                         case 6: //"Uso de la memoria"
                             actToLoad = actDebugMemory.class;
                             break;
